@@ -1,0 +1,129 @@
+:root {
+  --color-bg: #070739;
+  --color-text: #f7f7f7;
+  --color-text-translucent: #f7f7f720;
+  --color-accent: #03c988;
+  --color-accent-light: #9df1df;
+  --shadow-sm: rgba(255, 255, 255, 0.15) 0px 2px 8px;
+  --font-primary: "Noto Sans", sans-serif;
+  --font-secondary: "Russo One", sans-serif;
+  --fs-xs: 0.625rem;
+  --fs-sm: 0.75rem;
+  --fs-md: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 2rem;
+  --fs-xxl: 2.5rem;
+  --fs-xxxl: 3.75rem;
+  --duration-base: 0.3s;
+  font-size: 12px;
+}
+
+/* .text-shadow {
+  text-shadow: -1px -1px 4px #cc0f39, 1px 1px 4px #0ffbf9;
+  animation: textShadowAnimation 1.5s ease infinite;
+}
+
+@keyframes textShadowAnimation {
+  0%,
+  100% {
+    text-shadow: -1px -1px 4px #cc0f39, 1px 1px 4px #0ffbf9;
+  }
+  50% {
+    text-shadow: 1px 1px 4px #cc0f39, -1px -1px 4px #0ffbf9;
+  }
+} */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  height: 100vh;
+  height: 100dvh;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: 2rem;
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  font-size: var(--fs-md);
+  position: relative;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.625rem 0.825rem;
+  width: max-content;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  transition: background-color var(--duration-base),
+    box-shadow var(--duration-base);
+}
+
+button:hover,
+button:focus-visible {
+  background-color: var(--color-accent-light);
+  box-shadow: 1px 2px 10px var(--color-accent-light);
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-secondary);
+  font-size: var(--fs-xxxl);
+}
+
+img {
+  width: 100%;
+  max-width: max-content;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a,
+a:hover,
+a:focus-visible,
+a:visited,
+a:active {
+  color: var(--color-text);
+  font-size: var(--fs-md);
+  text-decoration: none;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
+
+  img {
+    max-width: none;
+  }
+}
