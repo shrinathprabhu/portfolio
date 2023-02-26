@@ -111,11 +111,9 @@ useHead({
                   href="https://github.com/shrinathprabhu"
                   target="_blank"
                   rel="noopener"
+                  aria-label="See Shrinath's code on Github"
                 >
-                  <IconsGithub
-                    class="social-icon"
-                    alt="See Shrinath's code on Github"
-                  />
+                  <IconsGithub class="social-icon" />
                 </a>
               </VTooltip>
               <VTooltip text="Find Shrinath on Linkedin">
@@ -123,11 +121,9 @@ useHead({
                   href="https://www.linkedin.com/in/shrinath-prabhu"
                   target="_blank"
                   rel="noopener"
+                  aria-label="Find Shrinath on Linkedin"
                 >
-                  <IconsLinkedin
-                    class="social-icon"
-                    alt="Find Shrinath on Linkedin"
-                  />
+                  <IconsLinkedin class="social-icon" />
                 </a>
               </VTooltip>
               <VTooltip text="Find Shrinath on Twitter">
@@ -135,11 +131,9 @@ useHead({
                   href="https://twitter.com/shrinath_prabhu"
                   target="_blank"
                   rel="noopener"
+                  aria-label="Find Shrinath on Twitter"
                 >
-                  <IconsTwitter
-                    class="social-icon"
-                    alt="Find Shrinath on Twitter"
-                  />
+                  <IconsTwitter class="social-icon" />
                 </a>
               </VTooltip>
             </div>
