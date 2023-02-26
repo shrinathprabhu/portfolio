@@ -4,6 +4,7 @@
   --color-text-translucent: #f7f7f720;
   --color-accent: #03c988;
   --color-accent-light: #9df1df;
+  --color-danger: red;
   --shadow-sm: rgba(255, 255, 255, 0.15) 0px 2px 8px;
   --font-primary: "Noto Sans", sans-serif;
   --font-secondary: "Russo One", sans-serif;
@@ -11,28 +12,14 @@
   --fs-sm: 0.75rem;
   --fs-md: 0.875rem;
   --fs-base: 1rem;
+  --fs-xbase: 1.125rem;
   --fs-lg: 1.25rem;
-  --fs-xl: 2rem;
+  --fs-xl: 1.75rem;
   --fs-xxl: 2.5rem;
   --fs-xxxl: 3.75rem;
   --duration-base: 0.3s;
   font-size: 12px;
 }
-
-/* .text-shadow {
-  text-shadow: -1px -1px 4px #cc0f39, 1px 1px 4px #0ffbf9;
-  animation: textShadowAnimation 1.5s ease infinite;
-}
-
-@keyframes textShadowAnimation {
-  0%,
-  100% {
-    text-shadow: -1px -1px 4px #cc0f39, 1px 1px 4px #0ffbf9;
-  }
-  50% {
-    text-shadow: 1px 1px 4px #cc0f39, -1px -1px 4px #0ffbf9;
-  }
-} */
 
 body {
   background-color: var(--color-bg);
@@ -60,7 +47,7 @@ button {
   position: relative;
   background-color: var(--color-accent);
   color: var(--color-bg);
-  padding: 0.625rem 0.825rem;
+  padding: 0.625rem 1rem;
   width: max-content;
   font-weight: 600;
   border-radius: 0.5rem;
@@ -82,16 +69,20 @@ h1 {
   font-size: var(--fs-xxxl);
 }
 
+h3 {
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-xl);
+}
+
 img {
   width: 100%;
   max-width: max-content;
 }
 
-ul,
-li {
+ul {
   margin: 0;
-  padding: 0;
-  list-style-type: none;
+  padding-left: 1rem;
 }
 
 a,
@@ -102,6 +93,33 @@ a:active {
   color: var(--color-text);
   font-size: var(--fs-md);
   text-decoration: none;
+}
+
+input,
+textarea {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid currentColor;
+  box-shadow: none;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  font-family: var(--font-primary);
+}
+
+input:autofill,
+input:-webkit-autofill {
+  outline: 2px solid var(--color-accent-light);
+  box-shadow: 1px 2px 5px var(--color-accent-light);
+}
+
+textarea {
+  resize: none;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .flex-col {
@@ -116,6 +134,37 @@ a:active {
 .center {
   justify-content: center;
   align-items: center;
+}
+
+.link-button {
+  position: relative;
+  border: 1px solid var(--color-text);
+  padding: 0.25rem 0.5rem;
+  width: max-content;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  cursor: pointer;
+}
+
+.link-button::before {
+  content: "";
+  position: absolute;
+  inset: 0 -10%;
+  background-color: var(--color-text);
+  z-index: -1;
+  transform: translateX(-120%);
+  transition: transform var(--duration-base), color var(--duration-base);
+  border-radius: 100vh;
+}
+
+:is(.link-button:hover, .link-button:focus-visible)::before {
+  transform: translateX(0);
+}
+
+.link-button:hover,
+.link-button:focus-visible {
+  color: var(--color-bg);
 }
 
 @media screen and (min-width: 768px) {
