@@ -1,4 +1,4 @@
-const title = "Web Developer - Shrinath Prabhu";
+const title = "Shrinath Prabhu | Web Developer";
 const description =
   "Web developer with over 4 years of experience, who can code for both frontend and backend using Javascript. Mostly works with modern frontend frameworks and Node.js.";
 
@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   modules: ["@morev/vue-transitions/nuxt"],
   app: {
     head: {
-      title,
+      title: "Web Developer | Shrinath Prabhu",
       link: [
         {
           rel: "stylesheet",
