@@ -88,6 +88,8 @@ useHead({
                   class="work-logo"
                   :src="work.logo.src"
                   :alt="work.logo.alt"
+                  :width="work.logo.width"
+                  :height="work.logo.height"
                 />
               </a>
             </VTooltip>
