@@ -26,6 +26,10 @@ export default defineNuxtConfig({
           crossorigin: "",
         },
         {
+          rel: "preload",
+          href: "https://fonts.googleapis.com/css2?family=Russo+One&family=Noto+Sans:wght@300;400;500;600&display=swap",
+        },
+        {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Russo+One&family=Noto+Sans:wght@300;400;500;600&display=swap",
         },

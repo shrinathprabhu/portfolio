@@ -7,6 +7,8 @@ const works = [
     logo: {
       alt: "Arcana Network",
       src: "/images/arcana.png",
+      width: "160",
+      height: "127",
     },
     link: {
       src: "https://www.arcana.network/",
@@ -18,6 +20,8 @@ const works = [
     logo: {
       alt: "Hashbinary Services LLP",
       src: "/images/hashbinary.png",
+      width: "426",
+      height: "400",
     },
     link: {
       src: "https://hashbinary.com/",
@@ -31,7 +35,7 @@ useHead({
     {
       children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
         var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;
+        j.async=true;j.defer=true;
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
         f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PLJ5D24');`,
     },
@@ -41,6 +45,7 @@ useHead({
 
 <template>
   <main>
+    <Html lang="en"></Html>
     <div class="home-page-main">
       <section aria-label="details" class="flex-col" style="gap: 2rem">
         <div class="flex-col" style="gap: 0.25rem">
@@ -83,6 +88,8 @@ useHead({
                   class="work-logo"
                   :src="work.logo.src"
                   :alt="work.logo.alt"
+                  :width="work.logo.width"
+                  :height="work.logo.height"
                 />
               </a>
             </VTooltip>
@@ -105,7 +112,10 @@ useHead({
                   target="_blank"
                   rel="noopener"
                 >
-                  <IconsGithub class="social-icon" />
+                  <IconsGithub
+                    class="social-icon"
+                    alt="See Shrinath's code on Github"
+                  />
                 </a>
               </VTooltip>
               <VTooltip text="Find Shrinath on Linkedin">
@@ -114,7 +124,10 @@ useHead({
                   target="_blank"
                   rel="noopener"
                 >
-                  <IconsLinkedin class="social-icon" />
+                  <IconsLinkedin
+                    class="social-icon"
+                    alt="Find Shrinath on Linkedin"
+                  />
                 </a>
               </VTooltip>
               <VTooltip text="Find Shrinath on Twitter">
@@ -123,7 +136,10 @@ useHead({
                   target="_blank"
                   rel="noopener"
                 >
-                  <IconsTwitter class="social-icon" />
+                  <IconsTwitter
+                    class="social-icon"
+                    alt="Find Shrinath on Twitter"
+                  />
                 </a>
               </VTooltip>
             </div>
@@ -141,7 +157,12 @@ useHead({
         </div>
       </section>
       <section aria-label="illustration" class="flex center">
-        <img src="/images/web-dev-1.png" />
+        <img
+          src="/images/web-dev-1.png"
+          width="577"
+          height="433"
+          alt="Web Developer Illustration"
+        />
       </section>
     </div>
     <VModal :show="showModal" @close="showModal = false">
