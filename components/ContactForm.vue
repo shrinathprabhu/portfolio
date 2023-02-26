@@ -8,6 +8,7 @@
       href="https://calendly.com/shrinathprabhu/meeting"
       target="_blank"
       rel="noopener"
+      id="schedule-call"
       >Schedule a call</a
     >
     <div style="margin-block: 1rem">
@@ -16,7 +17,7 @@
     <div>
       <span
         >Drop me a mail at
-        <a href="mailto:hello@shrinath.me" class="mail"
+        <a id="drop-a-mail" href="mailto:hello@shrinath.me" class="mail"
           >hello@shrinath.me</a
         ></span
       >
@@ -48,6 +49,9 @@
 
 .mail {
   position: relative;
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--color-accent);
 }
 
 .mail::after {
@@ -57,8 +61,13 @@
   left: 50%;
   transform: translateX(-50%);
   width: 0%;
-  border-top: 1px solid var(--color-text);
+  border-top: 2px solid var(--color-accent);
   transition: width 0.25s;
+}
+
+.mail:hover,
+.mail:focus-visible {
+  filter: drop-shadow(2px 2px 16px var(--color-accent-light));
 }
 
 :is(.mail:hover, .mail:focus-visible)::after {

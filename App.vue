@@ -25,6 +25,18 @@ const works = [
     },
   },
 ];
+
+useHead({
+  script: [
+    {
+      children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PLJ5D24');`,
+    },
+  ],
+});
 </script>
 
 <template>
@@ -79,6 +91,7 @@ const works = [
         <div class="flex-col" style="gap: 0.75rem; align-items: start">
           <div class="flex" style="gap: 1.5rem">
             <button
+              id="lets-connect"
               class="cta-button"
               aria-haspopup="dialog"
               @click.stop="showModal = true"
@@ -117,6 +130,7 @@ const works = [
           </div>
           <div class="flex" style="margin-top: 1rem">
             <a
+              id="read-my-blog"
               href="https://medium.com/arcana-network-blog/vue-3-composition-api-basics-and-patterns-44813f2c785d"
               target="_blank"
               rel="noopener"
