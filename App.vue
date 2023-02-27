@@ -164,12 +164,6 @@ useHead({
         </div>
       </section>
       <section aria-label="illustration" class="flex center">
-        <img
-          src="/images/web-dev-1.png"
-          width="577"
-          height="433"
-          alt="Web Developer Illustration"
-        />
         <picture>
           <source
             type="image/webp"
