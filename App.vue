@@ -164,14 +164,8 @@ useHead({
       </section>
       <section aria-label="illustration" class="flex center">
         <picture>
-          <source
-            type="image/webp"
-            srcset="/images/webp/web-dev-1.webp"
-            width="577"
-            height="433"
-          />
           <img
-            src="/images/web-dev-1.png"
+            src="/images/web-dev.svg"
             width="577"
             height="433"
             alt="Web Developer Illustration"

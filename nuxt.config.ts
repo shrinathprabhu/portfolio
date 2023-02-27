@@ -65,7 +65,7 @@ export default defineNuxtConfig({
         },
         {
           name: "og:image",
-          content: "https://shrinath.me/images/frontend-dev-2.png",
+          content: "https://shrinath.me/images/web-dev-meta.png",
         },
         {
           name: "twitter:card",
@@ -85,7 +85,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:image",
-          content: "https://shrinath.me/images/frontend-dev-2.png",
+          content: "https://shrinath.me/images/web-dev-meta.png",
         },
       ],
     },
