@@ -202,10 +202,28 @@ main {
     var(--color-accent-light),
     var(--color-text),
     var(--color-accent-light),
+    var(--color-accent),
+    var(--color-accent-light),
+    var(--color-text),
+    var(--color-accent-light),
     var(--color-accent)
   );
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-size: 800% 100%;
+  animation: text-gradient-motion 30s ease infinite;
+}
+
+@keyframes text-gradient-motion {
+  0% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
 }
 
 .section-heading {
