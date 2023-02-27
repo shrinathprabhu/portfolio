@@ -17,6 +17,10 @@ export default defineNuxtConfig({
           href: "/favicon.svg",
         },
         {
+          rel: "dns-prefetch",
+          href: "https://fonts.googleapis.com",
+        },
+        {
           rel: "preconnect",
           href: "https://fonts.googleapis.com",
         },
