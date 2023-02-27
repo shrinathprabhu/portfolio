@@ -199,7 +199,7 @@ useHead({
         </div>
       </section>
       <section aria-label="illustration" class="flex center">
-        <picture class="fade-in-zoom">
+        <picture class="fade-in-zoom illustration">
           <img
             src="/images/web-dev.svg"
             width="577"
@@ -302,6 +302,10 @@ li {
   transform: scale(1.5);
 }
 
+.illustration {
+  animation-delay: calc(4.25 * var(--duration-fade-in));
+}
+
 @media screen and (min-width: 768px) {
   main {
     align-items: center;
@@ -324,6 +328,10 @@ li {
 
   ul {
     max-width: 480px;
+  }
+
+  .illustration {
+    animation-delay: 0s;
   }
 }
 </style>
