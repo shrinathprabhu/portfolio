@@ -91,7 +91,6 @@ useHead({
                 <picture>
                   <source
                     type="image/webp"
-                    class="work-logo"
                     :srcset="work.logo.webp"
                     :width="work.logo.width"
                     :height="work.logo.height"
