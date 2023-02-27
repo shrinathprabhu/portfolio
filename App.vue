@@ -53,7 +53,7 @@ useHead({
     <div class="home-page-main">
       <section aria-label="details" class="flex-col" style="gap: 2rem">
         <div class="flex-col" style="gap: 0.25rem">
-          <h1 class="text-shadow">Web Developer</h1>
+          <h1 class="text-shadow dev-designation">Web Developer</h1>
           <span style="font-size: var(--fs-xbase)">
             who can help create websites, web apps, and APIs for your business.
           </span>
@@ -193,6 +193,19 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
+}
+
+.dev-designation {
+  background: linear-gradient(
+    to right,
+    var(--color-accent),
+    var(--color-accent-light),
+    var(--color-text),
+    var(--color-accent-light),
+    var(--color-accent)
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .section-heading {
