@@ -90,13 +90,6 @@ useHead({
               >
                 <picture>
                   <source
-                    type="image/avif"
-                    class="work-logo"
-                    :srcset="work.logo.avif"
-                    :width="work.logo.width"
-                    :height="work.logo.height"
-                  />
-                  <source
                     type="image/webp"
                     class="work-logo"
                     :srcset="work.logo.webp"
@@ -177,6 +170,20 @@ useHead({
           height="433"
           alt="Web Developer Illustration"
         />
+        <picture>
+          <source
+            type="image/webp"
+            src="/images/webp/web-dev-1.webp"
+            width="577"
+            height="433"
+          />
+          <img
+            src="/images/web-dev-1.png"
+            width="577"
+            height="433"
+            alt="Web Developer Illustration"
+          />
+        </picture>
       </section>
     </div>
     <VModal :show="showModal" @close="showModal = false">
