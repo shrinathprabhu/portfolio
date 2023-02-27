@@ -228,8 +228,9 @@ main {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.5rem;
+  gap: 1rem;
   overflow-x: hidden;
+  padding-inline: 2rem;
 }
 
 .dev-designation {
@@ -314,6 +315,7 @@ li {
     grid-template-columns: 1fr 1fr;
     padding: 2rem;
     isolation: isolate;
+    gap: 0.5rem;
   }
 
   .home-page-main::before {
