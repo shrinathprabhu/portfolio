@@ -18,7 +18,12 @@
   --fs-xxl: 2.5rem;
   --fs-xxxl: 3.75rem;
   --duration-base: 0.3s;
+  --duration-fade-in: 0.6s;
   font-size: 12px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -174,6 +179,66 @@ textarea {
   color: var(--color-bg);
 }
 
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp var(--duration-fade-in);
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(4rem);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in-right {
+  opacity: 0;
+  animation: fadeInRight var(--duration-fade-in);
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn var(--duration-fade-in);
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-zoom {
+  opacity: 0;
+  animation: fadeInZoom calc(1.125 * var(--duration-fade-in));
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInZoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 @media screen and (min-width: 768px) {
   :root {
     font-size: 16px;
@@ -195,5 +260,10 @@ textarea {
     scroll-behavior: auto !important;
     transition-duration: 0s !important;
     transition-delay: 0s !important;
+  }
+
+  .fadeInUp {
+    opacity: 1;
+    animation: none;
   }
 }

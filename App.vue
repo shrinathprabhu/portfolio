@@ -53,40 +53,68 @@ useHead({
     <div class="home-page-main">
       <section aria-label="details" class="flex-col" style="gap: 2rem">
         <div class="flex-col" style="gap: 0.25rem">
-          <h1 class="text-shadow dev-designation">Web Developer</h1>
-          <span style="font-size: var(--fs-xbase)">
+          <div class="fade-in-up">
+            <h1 class="text-shadow dev-designation">Web Developer</h1>
+          </div>
+          <span
+            class="fade-in-up"
+            style="
+              font-size: var(--fs-xbase);
+              animation-delay: var(--duration-fade-in);
+            "
+          >
             who can help create websites, web apps, and APIs for your business.
           </span>
         </div>
         <div>
-          <span class="section-heading text-shadow">Why you'll need me</span>
+          <span
+            class="section-heading text-shadow fade-in"
+            style="animation-delay: calc(1.5 * var(--duration-fade-in))"
+            >Why you'll need me</span
+          >
           <ul class="flex-col">
-            <li>
+            <li
+              class="fade-in-right"
+              style="animation-delay: calc(1.8 * var(--duration-fade-in))"
+            >
               You have a design and want to convert it into a fully functional
               website or a web app.
             </li>
-            <li>
+            <li
+              class="fade-in-right"
+              style="animation-delay: calc(2.1 * var(--duration-fade-in))"
+            >
               You want to create API endpoints for your project in Node.js.
             </li>
-            <li>
+            <li
+              class="fade-in-right"
+              style="animation-delay: calc(2.4 * var(--duration-fade-in))"
+            >
               You want someone who can help you with both the frontend and the
               backend.
             </li>
           </ul>
         </div>
         <div class="flex-col" style="gap: 0.5rem">
-          <span class="section-heading text-shadow">Worked for </span>
+          <span
+            class="section-heading text-shadow fade-in"
+            style="animation-delay: calc(3 * var(--duration-fade-in))"
+            >Worked for
+          </span>
           <div class="flex" style="gap: 0.75rem">
             <VTooltip
-              v-for="work in works"
+              v-for="(work, index) in works"
               :key="work.tooltip"
               :text="work.tooltip"
             >
               <a
-                class="flex work-link"
+                class="flex work-link fade-in"
                 :href="work.link.src"
                 target="_blank"
                 :rel="work.link.rel"
+                :style="`animation-delay: calc(${
+                  3 + (index + 1) * 0.35
+                } * var(--duration-fade-in))`"
               >
                 <picture>
                   <source
@@ -111,8 +139,9 @@ useHead({
           <div class="flex" style="gap: 1.5rem">
             <button
               id="lets-connect"
-              class="cta-button"
+              class="cta-button fade-in-zoom"
               aria-haspopup="dialog"
+              style="animation-delay: calc(3.75 * var(--duration-fade-in))"
               @click.stop="showModal = true"
             >
               Let's Connect
@@ -120,30 +149,36 @@ useHead({
             <div class="flex icons" style="gap: 1.125rem">
               <VTooltip text="See Shrinath's code on Github">
                 <a
+                  class="fade-in"
                   href="https://github.com/shrinathprabhu"
                   target="_blank"
                   rel="noopener"
                   aria-label="See Shrinath's code on Github"
+                  style="animation-delay: calc(4 * var(--duration-fade-in))"
                 >
                   <IconsGithub class="social-icon" />
                 </a>
               </VTooltip>
               <VTooltip text="Find Shrinath on Linkedin">
                 <a
+                  class="fade-in"
                   href="https://www.linkedin.com/in/shrinath-prabhu"
                   target="_blank"
                   rel="noopener"
                   aria-label="Find Shrinath on Linkedin"
+                  style="animation-delay: calc(4.1 * var(--duration-fade-in))"
                 >
                   <IconsLinkedin class="social-icon" />
                 </a>
               </VTooltip>
               <VTooltip text="Find Shrinath on Twitter">
                 <a
+                  class="fade-in"
                   href="https://twitter.com/shrinath_prabhu"
                   target="_blank"
                   rel="noopener"
                   aria-label="Find Shrinath on Twitter"
+                  style="animation-delay: calc(4.2 * var(--duration-fade-in))"
                 >
                   <IconsTwitter class="social-icon" />
                 </a>
@@ -156,14 +191,15 @@ useHead({
               href="https://medium.com/arcana-network-blog/vue-3-composition-api-basics-and-patterns-44813f2c785d"
               target="_blank"
               rel="noopener"
-              class="link-button"
+              class="link-button fade-in-right"
+              style="animation-delay: calc(4 * var(--duration-fade-in))"
               >Read my blog</a
             >
           </div>
         </div>
       </section>
       <section aria-label="illustration" class="flex center">
-        <picture>
+        <picture class="fade-in-zoom">
           <img
             src="/images/web-dev.svg"
             width="577"
@@ -193,6 +229,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
+  overflow-x: hidden;
 }
 
 .dev-designation {
@@ -211,10 +248,10 @@ main {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 800% 100%;
-  animation: text-gradient-motion 30s ease infinite;
+  animation: textGradientMotion 30s ease infinite;
 }
 
-@keyframes text-gradient-motion {
+@keyframes textGradientMotion {
   0% {
     background-position: 0% 100%;
   }
