@@ -7,6 +7,8 @@ const works = [
     logo: {
       alt: "Arcana Network",
       src: "/images/arcana.png",
+      webp: "/images/webp/arcana.webp",
+      avif: "/images/avif/arcana.avif",
       width: "160",
       height: "127",
     },
@@ -20,6 +22,8 @@ const works = [
     logo: {
       alt: "Hashbinary Services LLP",
       src: "/images/hashbinary.png",
+      webp: "/images/webp/hashbinary.webp",
+      avif: "/images/avif/hashbinary.avif",
       width: "426",
       height: "400",
     },
@@ -84,13 +88,22 @@ useHead({
                 target="_blank"
                 :rel="work.link.rel"
               >
-                <img
-                  class="work-logo"
-                  :src="work.logo.src"
-                  :alt="work.logo.alt"
-                  :width="work.logo.width"
-                  :height="work.logo.height"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    class="work-logo"
+                    :srcset="work.logo.webp"
+                    :width="work.logo.width"
+                    :height="work.logo.height"
+                  />
+                  <img
+                    class="work-logo"
+                    :src="work.logo.src"
+                    :alt="work.logo.alt"
+                    :width="work.logo.width"
+                    :height="work.logo.height"
+                  />
+                </picture>
               </a>
             </VTooltip>
           </div>
