@@ -257,6 +257,7 @@ li {
     background-color: var(--color-text);
     opacity: 0.15;
     border-radius: 2rem;
+    z-index: -1;
   }
 
   ul {
