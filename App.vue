@@ -88,22 +88,14 @@ useHead({
                 target="_blank"
                 :rel="work.link.rel"
               >
-                <picture>
-                  <source
-                    type="image/webp"
-                    class="work-logo"
-                    :srcset="work.logo.webp"
-                    :width="work.logo.width"
-                    :height="work.logo.height"
-                  />
-                  <img
-                    class="work-logo"
-                    :src="work.logo.src"
-                    :alt="work.logo.alt"
-                    :width="work.logo.width"
-                    :height="work.logo.height"
-                  />
-                </picture>
+                <img
+                  class="work-logo"
+                  :src="work.logo.src"
+                  :srcset="(work.logo.webp, work.logo.src)"
+                  :alt="work.logo.alt"
+                  :width="work.logo.width"
+                  :height="work.logo.height"
+                />
               </a>
             </VTooltip>
           </div>
