@@ -166,7 +166,7 @@ useHead({
         <picture>
           <source
             type="image/webp"
-            src="/images/webp/web-dev-1.webp"
+            srcset="/images/webp/web-dev-1.webp"
             width="577"
             height="433"
           />
