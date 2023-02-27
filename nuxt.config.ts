@@ -32,6 +32,7 @@ export default defineNuxtConfig({
         {
           rel: "preload",
           href: "https://fonts.googleapis.com/css2?family=Russo+One&family=Noto+Sans:wght@400;500;600&display=swap",
+          as: "style",
         },
         {
           rel: "stylesheet",
