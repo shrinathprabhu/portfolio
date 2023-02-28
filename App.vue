@@ -166,7 +166,7 @@ useHead({
                   target="_blank"
                   rel="noopener"
                   aria-label="Find Shrinath on Linkedin"
-                  style="animation-delay: calc(4.1 * var(--duration-fade-in))"
+                  style="animation-delay: calc(4.25 * var(--duration-fade-in))"
                 >
                   <IconsLinkedin class="social-icon" />
                 </a>
@@ -178,7 +178,7 @@ useHead({
                   target="_blank"
                   rel="noopener"
                   aria-label="Find Shrinath on Twitter"
-                  style="animation-delay: calc(4.2 * var(--duration-fade-in))"
+                  style="animation-delay: calc(4.5 * var(--duration-fade-in))"
                 >
                   <IconsTwitter class="social-icon" />
                 </a>
@@ -192,7 +192,7 @@ useHead({
               target="_blank"
               rel="noopener"
               class="link-button fade-in-right"
-              style="animation-delay: calc(4 * var(--duration-fade-in))"
+              style="animation-delay: calc(3.85 * var(--duration-fade-in))"
               >Read my blog</a
             >
           </div>
@@ -304,7 +304,7 @@ li {
 }
 
 .illustration {
-  animation-delay: calc(4.25 * var(--duration-fade-in));
+  animation-delay: calc(4.6 * var(--duration-fade-in));
 }
 
 @media screen and (min-width: 768px) {
@@ -333,7 +333,7 @@ li {
   }
 
   .illustration {
-    animation-delay: 0s;
+    animation-delay: var(--duration-base);
   }
 }
 </style>
