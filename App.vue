@@ -310,6 +310,7 @@ li {
 @media screen and (min-width: 768px) {
   main {
     align-items: center;
+    padding-inline: 2rem;
   }
   .home-page-main {
     grid-template-columns: 1fr 1fr;
