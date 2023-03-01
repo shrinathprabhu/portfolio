@@ -4,6 +4,7 @@
   --color-text-translucent: #f7f7f720;
   --color-accent: #03c988;
   --color-accent-light: #9df1df;
+  --color-tooltip-bg: #2a2a2a;
   --color-danger: red;
   --shadow-sm: rgba(255, 255, 255, 0.15) 0px 2px 8px;
   --font-primary: "Noto Sans", sans-serif;
@@ -19,6 +20,7 @@
   --fs-xxxl: 3.75rem;
   --duration-base: 0.3s;
   --duration-fade-in: 0.6s;
+  /* color-scheme: dark light; */
   font-size: 12px;
 }
 
@@ -247,6 +249,17 @@ textarea {
     max-width: none;
   }
 }
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    --color-text: #070739;
+    --color-bg: #f7f7f7;
+    --color-text-translucent: #07073920;
+    --color-accent-light: #00b97c;
+    --color-accent: #019664;
+    --color-tooltip-bg: #f7f7f7;
+  }
+} */
 
 @media (prefers-reduced-motion: reduce) {
   *,

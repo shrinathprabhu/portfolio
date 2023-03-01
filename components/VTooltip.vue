@@ -15,7 +15,6 @@ const props = defineProps<TooltipProps>();
 
 <style scoped>
 .tooltip-wrapper {
-  --color-tooltip-bg: #2a2a2a;
   position: relative;
   width: max-content;
 }
