@@ -136,7 +136,7 @@ useHead({
           </div>
         </div>
         <div class="flex-col" style="gap: 0.75rem; align-items: start">
-          <div class="flex" style="gap: 1.5rem">
+          <div class="flex" style="gap: 1.5rem; align-items: center">
             <button
               id="lets-connect"
               class="cta-button fade-in-zoom"
@@ -274,7 +274,7 @@ li {
 }
 
 .work-link {
-  width: 1.75rem;
+  width: 2rem;
   aspect-ratio: 1/1;
   padding: 0.25rem;
   transition: transform var(--duration-base);
@@ -286,13 +286,9 @@ li {
   width: 100%;
 }
 
-.icons {
-  padding-top: 0.5rem;
-}
-
 .icons a {
   display: flex;
-  width: 1.25rem;
+  width: 1.5rem;
   cursor: pointer;
   transition: transform var(--duration-base);
 }
