@@ -406,8 +406,8 @@ li {
   position: absolute;
   width: 10%;
   aspect-ratio: 1/1;
-  top: 39%;
-  left: 23%;
+  top: 40%;
+  left: 24%;
   transform: scale(0);
   opacity: 0;
   display: flex;
