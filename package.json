@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@morev/vue-transitions": "^2.3.6",
+    "gsap": "^3.11.4",
     "jsonp": "^0.2.1",
     "punycode": "^2.3.0"
   }

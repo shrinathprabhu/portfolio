@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import gsap from "gsap";
+
 const showModal = ref(false);
 
 const works = [
@@ -34,6 +36,53 @@ const works = [
   },
 ];
 
+const skills = [
+  {
+    logo: "/images/vue.svg",
+    name: "Vue",
+  },
+  {
+    logo: "/images/nuxt-dot-js.svg",
+    name: "Nuxt",
+  },
+  {
+    logo: "/images/node-js.svg",
+    name: "Node.js",
+  },
+  {
+    logo: "/images/javascript.svg",
+    name: "Javascript",
+  },
+  {
+    logo: "/images/typescript.svg",
+    name: "Typescript",
+  },
+  {
+    logo: "/images/express.svg",
+    name: "Express",
+  },
+  {
+    logo: "/images/mongodb.svg",
+    name: "MongoDB",
+  },
+  {
+    logo: "/images/html.svg",
+    name: "HTML 5",
+  },
+  {
+    logo: "/images/css3.svg",
+    name: "CSS 3",
+  },
+  {
+    logo: "/images/tailwind-css.svg",
+    name: "Tailwind",
+  },
+  {
+    logo: "/images/wordpress.svg",
+    name: "Wordpress",
+  },
+];
+
 useHead({
   script: [
     {
@@ -44,6 +93,50 @@ useHead({
         f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PLJ5D24');`,
     },
   ],
+});
+
+function animateSkills(
+  animatedSkillLogos: NodeListOf<Element>,
+  animatedSkillTexts: NodeListOf<Element>,
+  index: number
+) {
+  gsap
+    .timeline({ delay: 0.3 })
+    .to(animatedSkillLogos[index], {
+      scale: 1,
+      opacity: 1,
+      duration: 0.3,
+    })
+    .to(animatedSkillTexts[index], { opacity: 1, duration: 0.3 })
+    .to(
+      animatedSkillLogos[index],
+      {
+        scale: 0,
+        opacity: 0,
+        duration: 0.3,
+        delay: 1,
+        onComplete: animateSkills,
+        onCompleteParams: [
+          animatedSkillLogos,
+          animatedSkillTexts,
+          index + 1 === animatedSkillLogos.length ? 0 : index + 1,
+        ],
+      },
+      "-=0.1"
+    )
+    .to(animatedSkillTexts[index], { opacity: 0, duration: 0.3 }, "-=0.3");
+}
+
+onMounted(() => {
+  const gsapStartDelay = window.innerWidth < 768 ? 9000 : 7000;
+  const animatedSkillLogos = document.querySelectorAll(
+    ".animated-skill-logo-container"
+  );
+  const animatedSkillTexts = document.querySelectorAll(".animated-skill-text");
+  setTimeout(
+    () => animateSkills(animatedSkillLogos, animatedSkillTexts, 0),
+    gsapStartDelay
+  );
 });
 </script>
 
@@ -199,14 +292,19 @@ useHead({
         </div>
       </section>
       <section aria-label="illustration" class="flex center">
-        <picture class="fade-in-zoom illustration">
-          <img
-            src="/images/web-dev.svg"
-            width="577"
-            height="433"
-            alt="Web Developer Illustration"
-          />
-        </picture>
+        <div class="hero-image-container fade-in-zoom">
+          <div
+            v-for="skill in skills"
+            :key="skill.name"
+            class="animated-skill-logo-container"
+          >
+            <img class="animated-skill-logo" :src="skill.logo" />
+            <span class="animated-skill-text">{{ skill.name }}</span>
+          </div>
+          <picture class="illustration">
+            <IllustrationWebDev aria-label="Web Developer Illustration" />
+          </picture>
+        </div>
       </section>
     </div>
     <VModal :show="showModal" @close="showModal = false">
@@ -299,8 +397,39 @@ li {
   transform: scale(1.5);
 }
 
-.illustration {
+.hero-image-container {
+  position: relative;
   animation-delay: calc(4.6 * var(--duration-fade-in));
+}
+
+.animated-skill-logo-container {
+  position: absolute;
+  width: 10%;
+  aspect-ratio: 1/1;
+  top: 39%;
+  left: 23%;
+  transform: scale(0);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+}
+
+.animated-skill-logo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+.animated-skill-text {
+  position: relative;
+  font-size: var(--fs-md);
+  color: var(--color-tooltip-bg);
+  font-weight: 600;
+  opacity: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -329,7 +458,7 @@ li {
     max-width: 480px;
   }
 
-  .illustration {
+  .hero-image-container {
     animation-delay: var(--duration-base);
   }
 }
