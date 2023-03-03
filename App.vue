@@ -10,7 +10,6 @@ const works = [
       alt: "Arcana Network",
       src: "/images/arcana.png",
       webp: "/images/webp/arcana.webp",
-      avif: "/images/avif/arcana.avif",
       width: "160",
       height: "127",
     },
@@ -25,7 +24,6 @@ const works = [
       alt: "Hashbinary Services LLP",
       src: "/images/hashbinary.png",
       webp: "/images/webp/hashbinary.webp",
-      avif: "/images/avif/hashbinary.avif",
       width: "426",
       height: "400",
     },
@@ -302,6 +300,7 @@ onMounted(() => {
               class="animated-skill-logo"
               :src="skill.logo"
               :alt="`Can also code in ${skill.name}`"
+              loading="lazy"
             />
             <span class="animated-skill-text">{{ skill.name }}</span>
           </div>
