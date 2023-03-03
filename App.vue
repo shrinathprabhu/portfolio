@@ -298,7 +298,11 @@ onMounted(() => {
             :key="skill.name"
             class="animated-skill-logo-container"
           >
-            <img class="animated-skill-logo" :src="skill.logo" />
+            <img
+              class="animated-skill-logo"
+              :src="skill.logo"
+              :alt="`Can also code in ${skill.name}`"
+            />
             <span class="animated-skill-text">{{ skill.name }}</span>
           </div>
           <picture class="illustration">
@@ -347,7 +351,7 @@ main {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 800% 100%;
-  animation: textGradientMotion 30s ease infinite;
+  /* animation: textGradientMotion 30s ease infinite; */
 }
 
 @keyframes textGradientMotion {
