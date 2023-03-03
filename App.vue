@@ -426,7 +426,7 @@ li {
 
 .animated-skill-text {
   position: relative;
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   color: var(--color-tooltip-bg);
   font-weight: 600;
   opacity: 0;
