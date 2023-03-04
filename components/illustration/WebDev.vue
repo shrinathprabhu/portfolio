@@ -2,8 +2,6 @@
 import gsap from "gsap";
 import { RoughEase } from "gsap/EasePack";
 
-gsap.registerPlugin(RoughEase);
-
 function animateHeroImage() {
   const screenTl = gsap
     .timeline()
@@ -83,6 +81,7 @@ function animateHeroImage() {
 
 onMounted(() => {
   const gsapStartDelay = window.innerWidth < 768 ? 4000 : 2000;
+  gsap.registerPlugin(RoughEase);
 
   setTimeout(() => animateHeroImage(), gsapStartDelay);
 });
