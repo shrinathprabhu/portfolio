@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import gsap from "gsap";
+import gsap, { Power0 } from "gsap";
 import { RoughEase } from "gsap/EasePack";
 
 function animateHeroImage() {
@@ -75,23 +75,43 @@ function animateHeroImage() {
     .to("#hand", {
       x: -7,
       duration: 0.25,
-      ease: "rough({strength: 7, points: 70, template: strong.inOut, taper: both})",
+      ease: RoughEase.ease.config({
+        template: Power0.easeOut,
+        strength: 1,
+        points: 20,
+        taper: "none",
+        randomize: true,
+        clamp: false,
+      }),
     })
     .to("#hand", {
       x: 0,
       duration: 0.5,
-      ease: "rough({strength: 4, points: 95, template: strong.inOut, taper: both})",
+      ease: RoughEase.ease.config({
+        template: Power0.easeOut,
+        strength: 1,
+        points: 20,
+        taper: "none",
+        randomize: true,
+        clamp: false,
+      }),
     })
     .to("#hand", {
       x: 7,
       duration: 0.25,
-      ease: "rough({strength: 3, points: 60, template: strong.inOut, taper: both})",
+      ease: RoughEase.ease.config({
+        template: Power0.easeOut,
+        strength: 1,
+        points: 20,
+        taper: "none",
+        randomize: true,
+        clamp: false,
+      }),
     });
 }
 
 onMounted(() => {
   const gsapStartDelay = window.innerWidth < 768 ? 4000 : 2000;
-  gsap.registerPlugin(RoughEase);
 
   setTimeout(() => animateHeroImage(), gsapStartDelay);
 });
