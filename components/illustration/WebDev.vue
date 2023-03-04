@@ -22,13 +22,23 @@ function animateHeroImage() {
     })
     .to("#big-screen", { fill: "#07073960", opacity: 1, duration: 0.1 })
     .to("#big-screen", { fill: "#f7f7f7", duration: 0.5, delay: 0.25 })
-    .to("#window-action-buttons", { opacity: 1, duration: 0.3 })
+    .to("#window-action-buttons path", {
+      opacity: 1,
+      duration: 0.3,
+      stagger: 0.05,
+    })
     .fromTo(
-      "#big-screen-display",
+      "#big-screen-display path",
       { y: 50 },
-      { opacity: 1, y: 0, duration: 0.3, delay: 1 }
+      { opacity: 1, y: 0, duration: 0.3, delay: 1, stagger: 0.25 }
     )
-    .to("#big-screen-display", { y: -50, opacity: 0, duration: 0.3, delay: 2 });
+    .to("#big-screen-display path", {
+      y: -50,
+      opacity: 0,
+      duration: 0.3,
+      delay: 2,
+      stagger: 0.1,
+    });
 
   gsap
     .timeline()
@@ -63,7 +73,7 @@ function animateHeroImage() {
       repeat: -1,
     })
     .to("#hand", {
-      x: -5,
+      x: -7,
       duration: 0.25,
       ease: "rough({strength: 7, points: 70, template: strong.inOut, taper: both})",
     })
@@ -73,7 +83,7 @@ function animateHeroImage() {
       ease: "rough({strength: 4, points: 95, template: strong.inOut, taper: both})",
     })
     .to("#hand", {
-      x: 5,
+      x: 7,
       duration: 0.25,
       ease: "rough({strength: 3, points: 60, template: strong.inOut, taper: both})",
     });
@@ -662,8 +672,8 @@ svg {
   height: 100%;
 }
 
-#big-screen-display,
-#window-action-buttons,
+#big-screen-display path,
+#window-action-buttons path,
 #github-coffee,
 #code-container path {
   opacity: 0;

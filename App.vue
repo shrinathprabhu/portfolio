@@ -132,7 +132,7 @@ function animateSkills(
 }
 
 onMounted(() => {
-  const gsapStartDelay = window.innerWidth < 768 ? 9000 : 7000;
+  const gsapStartDelay = window.innerWidth < 768 ? 1000 : 8000;
   const animatedSkillLogos = document.querySelectorAll(
     ".animated-skill-logo-container"
   );
@@ -397,13 +397,17 @@ li {
   display: flex;
   width: 1.5rem;
   cursor: pointer;
-  transition: transform var(--duration-base);
+  transition: all var(--duration-base);
 }
 
-.work-link:hover,
-.work-link:focus-visible,
+.work-link:is(:hover, :focus-visible),
 .icons :is(a:hover, a:focus-visible) {
   transform: scale(1.5);
+}
+
+.social-icon:is(:hover, :focus-visible) {
+  color: var(--color-accent-light);
+  filter: drop-shadow(1px 2px 10px var(--color-accent-light));
 }
 
 .hero-image-container {
