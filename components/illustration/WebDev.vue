@@ -4,8 +4,8 @@ import gsap from "gsap";
 function animateHeroImage() {
   gsap
     .timeline()
-    .to("#big-screen", { fill: "#f7f7f7", opacity: 0.25, duration: 0.025 })
-    .to("#big-screen", { fill: "#07073960", opacity: 1, duration: 0.025 })
+    .to("#big-screen", { fill: "#f7f7f7", opacity: 0.25, duration: 0.01 })
+    .to("#big-screen", { fill: "#07073960", opacity: 1, duration: 0.01 })
     .to("#big-screen", {
       fill: "#f7f7f7",
       opacity: 0.5,

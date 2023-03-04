@@ -102,7 +102,7 @@ function animateSkills(
     .timeline({ delay: 0.3 })
     .fromTo(
       animatedSkillLogos[index],
-      { x: 75 },
+      { x: 65 },
       {
         scale: 1,
         x: 0,
@@ -116,7 +116,7 @@ function animateSkills(
       {
         scale: 0,
         opacity: 0,
-        x: -75,
+        x: -65,
         duration: 0.3,
         delay: 1,
         onComplete: animateSkills,
