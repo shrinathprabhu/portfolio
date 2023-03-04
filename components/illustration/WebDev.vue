@@ -4,13 +4,20 @@ import gsap from "gsap";
 function animateHeroImage() {
   gsap
     .timeline()
-    .to("#big-screen", { fill: "#f7f7f7", opacity: 0.5, duration: 0.025 })
+    .to("#big-screen", { fill: "#f7f7f7", opacity: 0.25, duration: 0.025 })
+    .to("#big-screen", { fill: "#07073960", opacity: 1, duration: 0.025 })
+    .to("#big-screen", {
+      fill: "#f7f7f7",
+      opacity: 0.5,
+      duration: 0.025,
+      delay: 0.15,
+    })
     .to("#big-screen", { fill: "#07073960", opacity: 1, duration: 0.025 })
     .to("#big-screen", {
       fill: "#f7f7f7",
       opacity: 0.75,
       duration: 0.05,
-      delay: 0.15,
+      delay: 0.2,
     })
     .to("#big-screen", { fill: "#07073960", opacity: 1, duration: 0.1 })
     .to("#big-screen", { fill: "#f7f7f7", duration: 0.5, delay: 0.25 })
@@ -24,12 +31,14 @@ function animateHeroImage() {
 
   gsap
     .timeline()
-    .to("#github-coffee", { opacity: 0.5, duration: 0.025 })
+    .to("#github-coffee", { opacity: 0.25, duration: 0.025 })
+    .to("#github-coffee", { opacity: 0, duration: 0.025 })
+    .to("#github-coffee", { opacity: 0.5, duration: 0.025, delay: 0.15 })
     .to("#github-coffee", { opacity: 0, duration: 0.025 })
     .to("#github-coffee", {
       opacity: 0.75,
       duration: 0.05,
-      delay: 0.15,
+      delay: 0.2,
     })
     .to("#github-coffee", { opacity: 0, duration: 0.1 })
     .to("#github-coffee", { opacity: 1, duration: 0.5, delay: 0.25 });

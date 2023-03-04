@@ -100,17 +100,23 @@ function animateSkills(
 ) {
   gsap
     .timeline({ delay: 0.3 })
-    .to(animatedSkillLogos[index], {
-      scale: 1,
-      opacity: 1,
-      duration: 0.3,
-    })
+    .fromTo(
+      animatedSkillLogos[index],
+      { x: 75 },
+      {
+        scale: 1,
+        x: 0,
+        opacity: 1,
+        duration: 0.3,
+      }
+    )
     .to(animatedSkillTexts[index], { opacity: 1, duration: 0.3 })
     .to(
       animatedSkillLogos[index],
       {
         scale: 0,
         opacity: 0,
+        x: -75,
         duration: 0.3,
         delay: 1,
         onComplete: animateSkills,
