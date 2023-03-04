@@ -37,6 +37,7 @@ body {
   margin: 0 auto;
   font-family: var(--font-primary);
   font-size: var(--fs-base);
+  position: relative;
 }
 
 #__nuxt {
@@ -247,6 +248,18 @@ textarea {
 
   img {
     max-width: none;
+  }
+
+  body::before {
+    position: fixed;
+    inset: 0;
+    content: "";
+    background-image: url("/images/night-sky.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    mix-blend-mode: hard-light;
   }
 }
 

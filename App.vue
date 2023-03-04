@@ -451,6 +451,7 @@ li {
     padding: 2rem;
     isolation: isolate;
     gap: 0.5rem;
+    backdrop-filter: blur(12px);
   }
 
   .home-page-main::before {
