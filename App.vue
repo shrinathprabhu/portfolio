@@ -350,7 +350,7 @@ main {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 800% 100%;
-  /* animation: textGradientMotion 30s ease infinite; */
+  animation: textGradientMotion 30s ease infinite;
 }
 
 @keyframes textGradientMotion {
