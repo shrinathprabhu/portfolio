@@ -132,7 +132,7 @@ function animateSkills(
 }
 
 onMounted(() => {
-  const gsapStartDelay = window.innerWidth < 768 ? 1000 : 8000;
+  const gsapStartDelay = window.innerWidth < 768 ? 10000 : 8000;
   const animatedSkillLogos = document.querySelectorAll(
     ".animated-skill-logo-container"
   );
