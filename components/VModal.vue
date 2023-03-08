@@ -55,8 +55,7 @@ const emit = defineEmits(["close"]);
   padding: 2rem 2.5rem;
   margin: 2.5rem;
   border-radius: 1rem;
-  width: calc(100% - 5rem);
-  max-width: 360px;
+  width: min(calc(100% - 5rem), 360px);
 }
 
 .close-button {

@@ -147,6 +147,7 @@ onMounted(() => {
 <template>
   <main>
     <Html lang="en"></Html>
+    <Body class="home-page-body"></Body>
     <div class="home-page-main">
       <section aria-label="details" class="flex-col" style="gap: 2rem">
         <div class="flex-col" style="gap: 0.25rem">
@@ -400,12 +401,12 @@ li {
   transition: all var(--duration-base);
 }
 
-.work-link:is(:hover, :focus-visible),
-.icons :is(a:hover, a:focus-visible) {
+.work-link:where(:hover, :focus-visible),
+.icons :where(a:hover, a:focus-visible) {
   transform: scale(1.5);
 }
 
-.social-icon:is(:hover, :focus-visible) {
+.social-icon:where(:hover, :focus-visible) {
   color: var(--color-accent-light);
   filter: drop-shadow(1px 2px 10px var(--color-accent-light));
 }

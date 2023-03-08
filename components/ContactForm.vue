@@ -17,7 +17,7 @@
     <div>
       <span
         >Drop me a mail at
-        <a id="drop-a-mail" href="mailto:hello@shrinath.me" class="mail"
+        <a id="drop-a-mail" href="mailto:hello@shrinath.me" class="link"
           >hello@shrinath.me</a
         ></span
       >
@@ -45,32 +45,5 @@
   display: flex;
   flex-grow: 1;
   margin-top: 0.625rem;
-}
-
-.mail {
-  position: relative;
-  font-size: var(--fs-base);
-  font-weight: 600;
-  color: var(--color-accent);
-}
-
-.mail::after {
-  position: absolute;
-  content: "";
-  bottom: -0.125rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0%;
-  border-top: 2px solid var(--color-accent);
-  transition: width 0.25s;
-}
-
-.mail:hover,
-.mail:focus-visible {
-  filter: drop-shadow(2px 2px 16px var(--color-accent-light));
-}
-
-:is(.mail:hover, .mail:focus-visible)::after {
-  width: 100%;
 }
 </style>

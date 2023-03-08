@@ -692,10 +692,8 @@ svg {
   height: 100%;
 }
 
-#big-screen-display path,
-#window-action-buttons path,
 #github-coffee,
-#code-container path {
+:where(#big-screen-display, #window-action-buttons, #code-container) path {
   opacity: 0;
 }
 </style>
