@@ -2,7 +2,7 @@
   <div class="error-container">
     <Illustration404 class="illustration" />
     <h2>Oops!</h2>
-    <p>The page you're trying to view does not exist</p>
+    <span>The page you're trying to view does not exist</span>
     <NuxtLink :to="{ name: 'index' }" class="link"> Head back to home</NuxtLink>
   </div>
 </template>
@@ -15,17 +15,18 @@
   align-items: center;
   gap: 1rem;
 
-  height: 100%;
+  padding: 2rem;
+  height: calc(100% - 4rem);
+  text-align: center;
 }
 
-h2,
-p {
+h2 {
   margin: 0;
   padding: 0;
 }
 
 .illustration {
-  max-width: 360px;
+  max-width: 375px;
   height: auto;
   margin-bottom: 1rem;
 }
