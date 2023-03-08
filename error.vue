@@ -26,8 +26,7 @@ h2 {
 }
 
 .illustration {
-  max-width: 375px;
-  width: 100%;
+  width: min(100%, 375px);
   height: auto;
   margin-bottom: 1rem;
 }
