@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import gsap from "gsap";
-import { definePageMeta } from "nuxt/dist/pages/runtime";
 
 const showModal = ref(false);
 
