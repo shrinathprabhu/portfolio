@@ -33,7 +33,7 @@ const props = defineProps<TooltipProps>();
   font-size: var(--fs-sm);
 }
 
-:is(.tooltip-wrapper:hover, .tooltip-wrapper:focus-visible) .tooltip {
+.tooltip-wrapper:where(:hover, :focus-visible) .tooltip {
   display: block;
 }
 </style>

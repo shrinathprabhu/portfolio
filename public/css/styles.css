@@ -63,8 +63,7 @@ button {
     box-shadow var(--duration-base);
 }
 
-button:hover,
-button:focus-visible {
+button:where(:hover, :focus-visible) {
   background-color: var(--color-accent-light);
   box-shadow: 1px 2px 10px var(--color-accent-light);
 }
@@ -100,10 +99,7 @@ ul {
 }
 
 a,
-a:hover,
-a:focus-visible,
-a:visited,
-a:active {
+a:where(:hover, :focus-visible, :visited, :active) {
   color: var(--color-text);
   font-size: var(--fs-md);
   text-decoration: none;
@@ -120,8 +116,7 @@ textarea {
   font-family: var(--font-primary);
 }
 
-input:autofill,
-input:-webkit-autofill {
+input:where(:autofill, :-webkit-autofill) {
   outline: 2px solid var(--color-accent-light);
   box-shadow: 1px 2px 5px var(--color-accent-light);
 }
@@ -172,13 +167,38 @@ textarea {
   border-radius: 100vh;
 }
 
-:is(.link-button:hover, .link-button:focus-visible)::before {
+.link-button:where(:hover, :focus-visible)::before {
   transform: translateX(0);
 }
 
-.link-button:hover,
-.link-button:focus-visible {
+.link-button:where(:hover, :focus-visible) {
   color: var(--color-bg);
+}
+
+.link {
+  position: relative;
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.link::after {
+  position: absolute;
+  content: "";
+  bottom: -0.125rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  border-top: 2px solid var(--color-accent);
+  transition: width 0.25s;
+}
+
+.link:where(:hover, :focus-visible) {
+  filter: drop-shadow(2px 2px 16px var(--color-accent-light));
+}
+
+.link:where(:hover, :focus-visible)::after {
+  width: 100%;
 }
 
 .fade-in-up {
@@ -250,7 +270,7 @@ textarea {
     max-width: none;
   }
 
-  body::before {
+  .home-page-body::before {
     position: fixed;
     inset: 0;
     content: "";
