@@ -111,7 +111,7 @@ onMounted(() => {
       delay: 0.4,
     })
     .to("#login-input-text", {
-      filter: "blur(5px)",
+      filter: "blur(4px)",
     })
     .to(".login-input-text", {
       opacity: 1,
@@ -164,7 +164,7 @@ onMounted(() => {
     .to("#login-page", {
       x: -500,
       opacity: 0,
-      duration: 0.5,
+      duration: 0.6,
     })
     .to(
       "#cursor",
@@ -198,13 +198,13 @@ onMounted(() => {
     })
     .to("#cursor", {
       x: -55,
-      duration: 0.3,
+      duration: 1,
     })
     .to(
       "#cursor",
       {
         y: -310,
-        duration: 0.6,
+        duration: 0.4,
       },
       "<"
     )
@@ -212,7 +212,40 @@ onMounted(() => {
       opacity: 1,
       duration: 0.5,
       delay: 0.3,
+    })
+    .to("#cursor", {
+      x: -90,
+      duration: 1,
+    })
+    .to(
+      "#cursor",
+      {
+        y: 120,
+        duration: 0.5,
+      },
+      "<"
+    )
+    .to("#order-details-page", {
+      opacity: 1,
+    })
+    .to("#service-selection-page", {
+      x: -500,
+      opacity: 0,
+      duration: 0.6,
+      delay: 0.3,
+    })
+    .to("#cursor", {
+      y: 210,
+      duration: 0.3,
+      delay: 0.5,
     });
+
+  timeline.to("#loading-page", { opacity: 1 }).to("#order-details-page", {
+    x: -500,
+    opacity: 0,
+    duration: 0.6,
+    delay: 0.3,
+  });
 });
 </script>
 
@@ -5415,6 +5448,35 @@ onMounted(() => {
   transform-origin: center;
 }
 
+#minute-hand-loading-clock {
+  transform: translateY(-2px) rotate(0);
+  transform-origin: center;
+  animation: minuteHandRotation 0.5s linear infinite;
+}
+
+#hour-hand-loading-clock {
+  transform-origin: center;
+  animation: hourHandRotation 3s linear infinite;
+}
+
+@keyframes hourHandRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes minuteHandRotation {
+  0% {
+    transform: translateY(-2px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-2px) rotate(360deg);
+  }
+}
+
 #map-place-auckland {
   transform-origin: center;
 }
@@ -5422,6 +5484,10 @@ onMounted(() => {
 .service-marker {
   transform-origin: center;
   opacity: 0;
+}
+
+#date-picker-calendar {
+  display: none;
 }
 </style>
 
