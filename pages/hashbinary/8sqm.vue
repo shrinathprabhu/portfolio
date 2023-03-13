@@ -35,7 +35,7 @@ function startOtpTimer() {
 }
 
 onMounted(() => {
-  const timeline = gsap.timeline();
+  const timeline = gsap.timeline({ delay: 0.3 });
 
   timeline
     .to("#login-page", {
@@ -103,7 +103,7 @@ onMounted(() => {
         x: -210,
         duration: 0.3,
       },
-      "-=0.6"
+      "<"
     )
     .to("#login-input-placeholder", {
       opacity: 0,
@@ -129,7 +129,7 @@ onMounted(() => {
         y: 200,
         duration: 0.3,
       },
-      "-=0.6"
+      "<"
     )
     .to("#login-otp-data-container", {
       x: 500,
@@ -151,12 +151,67 @@ onMounted(() => {
     .to(".otp-from-sms", {
       opacity: 1,
       duration: 0.3,
-      stagger: 0.2,
-      delay: 0.5,
+      stagger: 0.15,
+      delay: 1,
     })
     .to("#cursor", {
       y: 160,
       duration: 0.3,
+    })
+    .to("#service-selection-page", {
+      opacity: 1,
+    })
+    .to("#login-page", {
+      x: -500,
+      opacity: 0,
+      duration: 0.5,
+    })
+    .to(
+      "#cursor",
+      {
+        opacity: 0,
+        duration: 0.3,
+      },
+      "<"
+    );
+
+  timeline
+    .to(".map-loading-circle", {
+      attr: {
+        r: 200,
+      },
+      opacity: 0,
+      duration: 2,
+      stagger: 0.5,
+      repeat: 1,
+      delay: 0.3,
+    })
+    .to(".service-marker", {
+      opacity: 1,
+      duration: 0.3,
+      stagger: 0.1,
+    })
+    .to("#map-loading-pin", { opacity: 0, duration: 0.3 }, "<")
+    .to("#cursor", {
+      opacity: 1,
+      duration: 0.3,
+    })
+    .to("#cursor", {
+      x: -55,
+      duration: 0.3,
+    })
+    .to(
+      "#cursor",
+      {
+        y: -310,
+        duration: 0.6,
+      },
+      "<"
+    )
+    .to("#service-selected-container", {
+      opacity: 1,
+      duration: 0.5,
+      delay: 0.3,
     });
 });
 </script>
@@ -2211,7 +2266,7 @@ onMounted(() => {
                     height="888"
                     fill="url(#pattern1)"
                   />
-                  <g id="exxon-mobil-marker">
+                  <g class="service-marker">
                     <g id="map-marker-pin">
                       <g id="map-marker-spotlight" clip-path="url(#clip16_0_1)">
                         <g id="map-marker-shadow" filter="url(#filter11_f_0_1)">
@@ -2270,7 +2325,7 @@ onMounted(() => {
                       fill="url(#pattern2)"
                     />
                   </g>
-                  <g id="exxon-mobil-marker_2">
+                  <g class="service-marker">
                     <g id="map-marker-pin_2">
                       <g
                         id="map-marker-spotlight_2"
@@ -2335,7 +2390,7 @@ onMounted(() => {
                       fill="url(#pattern3)"
                     />
                   </g>
-                  <g id="exxon-mobil-marker-select">
+                  <g class="service-marker">
                     <g id="map-marker-pin_3">
                       <g
                         id="map-marker-spotlight_3"
@@ -2400,7 +2455,7 @@ onMounted(() => {
                       fill="url(#pattern4)"
                     />
                   </g>
-                  <g id="expresso-marker">
+                  <g class="service-marker">
                     <g id="map-marker-pin_4">
                       <g
                         id="map-marker-spotlight_4"
@@ -2465,7 +2520,7 @@ onMounted(() => {
                       fill="url(#pattern5)"
                     />
                   </g>
-                  <g id="bp-marker">
+                  <g class="service-marker">
                     <g id="map-marker-pin_5">
                       <g
                         id="map-marker-spotlight_5"
@@ -2542,7 +2597,7 @@ onMounted(() => {
                       />
                     </g>
                   </g>
-                  <g id="bp-marker_2">
+                  <g class="service-marker">
                     <g id="map-marker-pin_6">
                       <g
                         id="map-marker-spotlight_6"
@@ -2619,7 +2674,7 @@ onMounted(() => {
                       />
                     </g>
                   </g>
-                  <g id="car-care-marker">
+                  <g class="service-marker">
                     <g id="map-marker-pin_7">
                       <g
                         id="map-marker-spotlight_7"
@@ -2684,7 +2739,7 @@ onMounted(() => {
                       fill="url(#pattern10)"
                     />
                   </g>
-                  <g id="car-care-marker_2">
+                  <g class="service-marker">
                     <g id="map-marker-pin_8">
                       <g
                         id="map-marker-spotlight_8"
@@ -2752,22 +2807,12 @@ onMounted(() => {
                   <g id="map-loading-markers">
                     <g id="map-loading-markers-loader">
                       <circle
-                        id="map-loading-4th-circle"
-                        opacity="0.3"
-                        cx="212"
-                        cy="450"
-                        r="97"
-                        fill="#6393F2"
-                        fill-opacity="0.5"
-                        stroke="#6393F2"
-                        stroke-width="2"
-                      />
-                      <circle
                         id="map-loading-3rd-circle"
+                        class="map-loading-circle"
                         opacity="0.3"
                         cx="212"
                         cy="450"
-                        r="73"
+                        r="2"
                         fill="#6393F2"
                         fill-opacity="0.5"
                         stroke="#6393F2"
@@ -2775,10 +2820,11 @@ onMounted(() => {
                       />
                       <circle
                         id="map-loading-2nd-circle"
+                        class="map-loading-circle"
                         opacity="0.3"
                         cx="212"
                         cy="450"
-                        r="49"
+                        r="2"
                         fill="#6393F2"
                         fill-opacity="0.5"
                         stroke="#6393F2"
@@ -2786,10 +2832,11 @@ onMounted(() => {
                       />
                       <circle
                         id="map-loading-1st-circle"
+                        class="map-loading-circle"
                         opacity="0.3"
                         cx="212"
                         cy="450"
-                        r="25"
+                        r="2"
                         fill="#6393F2"
                         fill-opacity="0.5"
                         stroke="#6393F2"
@@ -5361,9 +5408,20 @@ onMounted(() => {
 #login-description,
 #login-input-data-container,
 #cursor,
-.login-input-text {
+.login-input-text,
+.service-marker,
+#service-selected-container {
   opacity: 0;
   transform-origin: center;
+}
+
+#map-place-auckland {
+  transform-origin: center;
+}
+
+.service-marker {
+  transform-origin: center;
+  opacity: 0;
 }
 </style>
 
