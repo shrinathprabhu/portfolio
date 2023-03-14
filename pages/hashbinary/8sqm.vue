@@ -5769,6 +5769,7 @@ h2 {
   .animated-svg-container {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
   .animated-svg-description {
