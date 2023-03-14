@@ -93,6 +93,11 @@ img {
   max-width: max-content;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 ul {
   margin: 0;
   padding-left: 1rem;
@@ -199,6 +204,16 @@ textarea {
 
 .link:where(:hover, :focus-visible)::after {
   width: 100%;
+}
+
+.restart-animation-button {
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+.hide-restart-animation-button {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .fade-in-up {
