@@ -2,6 +2,16 @@
 import gsap from "gsap";
 
 const otpTimerSeconds = ref(59);
+const timeline = gsap.timeline({ delay: 0.2 });
+const hoverEffect = {
+  filter: "contrast(1.25)",
+  duration: 0.1,
+};
+const showRestartButton = ref(false);
+
+timeline.eventCallback("onComplete", () => {
+  showRestartButton.value = true;
+});
 
 useHead({
   title: "Created backend for 8SQM | Shrinath Prabhu | Web Developer",
@@ -34,8 +44,15 @@ function startOtpTimer() {
   }, 1000);
 }
 
+function restartAnimation() {
+  timeline.restart();
+  showRestartButton.value = false;
+}
+
 onMounted(() => {
-  const timeline = gsap.timeline({ delay: 0.3 });
+  const successCheckPathLength = (
+    document.querySelector("#success-icon-check") as SVGPathElement
+  ).getTotalLength();
 
   timeline
     .to("#login-page", {
@@ -131,6 +148,7 @@ onMounted(() => {
       },
       "<"
     )
+    .to("#login-phone-continue-button", hoverEffect, "-=0.15")
     .to("#login-otp-data-container", {
       x: 500,
     })
@@ -158,13 +176,13 @@ onMounted(() => {
       y: 160,
       duration: 0.3,
     })
+    .to("#login-otp-continue-button", hoverEffect, "-=0.15")
     .to("#service-selection-page", {
       opacity: 1,
     })
     .to("#login-page", {
-      x: -500,
       opacity: 0,
-      duration: 0.6,
+      duration: 0.5,
     })
     .to(
       "#cursor",
@@ -184,13 +202,17 @@ onMounted(() => {
       duration: 2,
       stagger: 0.5,
       repeat: 1,
-      delay: 0.3,
+      delay: 0.1,
     })
-    .to(".service-marker", {
-      opacity: 1,
-      duration: 0.3,
-      stagger: 0.1,
-    })
+    .to(
+      ".service-marker",
+      {
+        opacity: 1,
+        duration: 0.3,
+        stagger: 0.1,
+      },
+      "-=0.3"
+    )
     .to("#map-loading-pin", { opacity: 0, duration: 0.3 }, "<")
     .to("#cursor", {
       opacity: 1,
@@ -225,32 +247,190 @@ onMounted(() => {
       },
       "<"
     )
+    .to("#book-now-button", hoverEffect, "-=0.15")
     .to("#order-details-page", {
       opacity: 1,
     })
     .to("#service-selection-page", {
-      x: -500,
       opacity: 0,
-      duration: 0.6,
+      duration: 0.5,
       delay: 0.3,
     })
     .to("#cursor", {
       y: 210,
       duration: 0.3,
       delay: 0.5,
+    })
+    .to("#order-pay-now", hoverEffect, "-=0.15");
+
+  timeline
+    .to("#loading-page", { opacity: 1 })
+    .to("#cursor", {
+      opacity: 0,
+      duration: 0.3,
+    })
+    .to(
+      "#order-details-page",
+      {
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.3,
+      },
+      "<"
+    )
+    .to("#stripe-page", { opacity: 1, duration: 0.6 })
+    .to("#cursor", {
+      opacity: 1,
+      duration: 0.3,
+    })
+    .to("#cursor", {
+      x: -330,
+      duration: 1,
+      delay: 0.3,
+    })
+    .to(
+      "#cursor",
+      {
+        y: -280,
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to(".stripe-email", {
+      opacity: 1,
+      duration: 0.1,
+      delay: 0.1,
+      stagger: 0.1,
+    })
+    .to("#cursor", {
+      y: -190,
+      duration: 0.3,
+    })
+    .to(".card-number", {
+      opacity: 1,
+      duration: 0.1,
+      stagger: 0.1,
+      delay: 0.1,
+    })
+    .to(
+      "#Cards",
+      {
+        opacity: 1,
+        duration: 0.3,
+      },
+      "-=1"
+    )
+    .to("#cursor", {
+      y: -150,
+      duration: 0.3,
+    })
+    .to(".card-expiry", {
+      opacity: 1,
+      duration: 0.2,
+      stagger: 0.2,
+      delay: 0.1,
+    })
+    .to("#cursor", {
+      x: -165,
+      duration: 0.3,
+    })
+    .to(".cvc", {
+      opacity: 1,
+      duration: 0.1,
+      stagger: 0.1,
+      delay: 0.1,
+    })
+    .to("#cursor", {
+      x: -330,
+      duration: 1,
+      delay: 0.3,
+    })
+    .to(
+      "#cursor",
+      {
+        y: -60,
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to(".card-name", {
+      opacity: 1,
+      duration: 0.1,
+      stagger: 0.1,
+      delay: 0.1,
+    })
+    .to("#cursor", {
+      x: -110,
+      duration: 1,
+      delay: 0.3,
+    })
+    .to(
+      "#cursor",
+      {
+        y: 135,
+        filter: "brightness(5)",
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to("#pay-button", hoverEffect, "-=0.15")
+    .to("#stripe-page", { opacity: 0, duration: 0.4, delay: 0.2 })
+    .to(
+      "#cursor",
+      {
+        opacity: 0,
+        filter: "none",
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to("#success-page", {
+      opacity: 1,
+      duration: 0.4,
+      delay: 0.3,
     });
 
-  timeline.to("#loading-page", { opacity: 1 }).to("#order-details-page", {
-    x: -500,
-    opacity: 0,
-    duration: 0.6,
-    delay: 0.3,
-  });
+  timeline
+    .to("#success-icon-check", {
+      strokeDasharray: successCheckPathLength,
+      strokeDashoffset: -successCheckPathLength + 1,
+    })
+    .to("#success-icon-circle", {
+      opacity: 1,
+      duration: 0.5,
+      delay: 0.3,
+    })
+    .to("#success-icon-check", {
+      opacity: 1,
+      duration: 0.1,
+    })
+    .to(
+      "#success-icon-check",
+      {
+        strokeDashoffset: 0,
+        duration: 0.3,
+      },
+      "<"
+    )
+    .to("#success-message-container", {
+      opacity: 1,
+      duration: 0.3,
+      delay: 0.1,
+    })
+    .to("#schedule-booking-container", {
+      opacity: 1,
+      duration: 0.3,
+      delay: 0.1,
+    })
+    .to("#success-page-btn", {
+      opacity: 1,
+      duration: 0.3,
+      delay: 0.1,
+    });
 });
 </script>
 
 <template>
-  <Body class="hashbinary-8sqm-body"></Body>
   <div class="animated-svg-container">
     <svg
       width="424"
@@ -556,14 +736,12 @@ onMounted(() => {
                       letter-spacing="0em"
                     >
                       <tspan x="75.0967" y="325.519">
-                        Your transaction has successfully been
+                        Your transaction is successfully
                       </tspan>
                       <tspan x="74.3037" y="346.519">
-                        completed and your booking has been&#10;
+                        completed and your booking is confirmed.
                       </tspan>
-                      <tspan x="123.584" y="367.519">
-                        confirmed. Details below
-                      </tspan>
+                      <tspan x="123.584" y="367.519">Details below</tspan>
                     </text>
                   </g>
                 </g>
@@ -579,7 +757,11 @@ onMounted(() => {
               />
               <g id="Frame 12">
                 <g id="Group 19">
-                  <g id="svgexport-1" clip-path="url(#clip2_0_1)">
+                  <g
+                    id="svgexport-1"
+                    clip-path="url(#clip2_0_1)"
+                    style="transform: translateX(6px)"
+                  >
                     <path
                       id="Vector"
                       fill-rule="evenodd"
@@ -632,8 +814,8 @@ onMounted(() => {
                     id="Powered by"
                     fill="#8792A2"
                     xml:space="preserve"
-                    style="white-space: pre"
-                    font-family="SF Pro Display"
+                    style="white-space: pre; transform: translateX(-4px)"
+                    font-family="Montserrat"
                     font-size="12"
                     letter-spacing="0.015em"
                   >
@@ -646,7 +828,7 @@ onMounted(() => {
                     fill="#8792A2"
                     xml:space="preserve"
                     style="white-space: pre"
-                    font-family="SF Pro Display"
+                    font-family="Montserrat"
                     font-size="12"
                     letter-spacing="0.015em"
                   >
@@ -657,7 +839,7 @@ onMounted(() => {
                     fill="#8792A2"
                     xml:space="preserve"
                     style="white-space: pre"
-                    font-family="SF Pro Display"
+                    font-family="Montserrat"
                     font-size="12"
                     letter-spacing="0.015em"
                   >
@@ -672,7 +854,7 @@ onMounted(() => {
                     fill="#8792A2"
                     xml:space="preserve"
                     style="white-space: pre"
-                    font-family="SF Pro Display"
+                    font-family="Montserrat"
                     font-size="16"
                     letter-spacing="0em"
                   >
@@ -703,7 +885,7 @@ onMounted(() => {
                     fill="#697386"
                     xml:space="preserve"
                     style="white-space: pre"
-                    font-family="SF Pro Display"
+                    font-family="Montserrat"
                     font-size="14"
                     letter-spacing="0.005em"
                   >
@@ -730,7 +912,22 @@ onMounted(() => {
                     >
                       <tspan x="37.3594" y="284.736">
                         <a href="mailto:johndoe@example.com">
-                          johndoe@example.com
+                          <tspan class="stripe-email">j</tspan>
+                          <tspan class="stripe-email">o</tspan>
+                          <tspan class="stripe-email">h</tspan>
+                          <tspan class="stripe-email">n</tspan>
+                          <tspan class="stripe-email">d</tspan>
+                          <tspan class="stripe-email">o</tspan>
+                          <tspan class="stripe-email">e</tspan>
+                          <tspan class="stripe-email">@</tspan>
+                          <tspan class="stripe-email">e</tspan>
+                          <tspan class="stripe-email">x</tspan>
+                          <tspan class="stripe-email">a</tspan>
+                          <tspan class="stripe-email">m</tspan>
+                          <tspan class="stripe-email">p</tspan>
+                          <tspan class="stripe-email">l</tspan>
+                          <tspan class="stripe-email">e</tspan>
+                          <tspan class="stripe-email">.com</tspan>
                         </a>
                       </tspan>
                     </text>
@@ -756,7 +953,7 @@ onMounted(() => {
                       fill="#697386"
                       xml:space="preserve"
                       style="white-space: pre"
-                      font-family="SF Pro Display"
+                      font-family="Montserrat"
                       font-size="14"
                       letter-spacing="0.005em"
                     >
@@ -779,7 +976,22 @@ onMounted(() => {
                           letter-spacing="0em"
                         >
                           <tspan x="37.3281" y="375.736">
-                            4242 4242 4242 42424
+                            <tspan class="card-number">4</tspan>
+                            <tspan class="card-number">2</tspan>
+                            <tspan class="card-number">4</tspan>
+                            <tspan class="card-number">2&nbsp;</tspan>
+                            <tspan class="card-number">4</tspan>
+                            <tspan class="card-number">2</tspan>
+                            <tspan class="card-number">4</tspan>
+                            <tspan class="card-number">2&nbsp;</tspan>
+                            <tspan class="card-number">4</tspan>
+                            <tspan class="card-number">2</tspan>
+                            <tspan class="card-number">4</tspan>
+                            <tspan class="card-number">2&nbsp;</tspan>
+                            <tspan class="card-number">4</tspan>
+                            <tspan class="card-number">2</tspan>
+                            <tspan class="card-number">4</tspan>
+                            <tspan class="card-number">2</tspan>
                           </tspan>
                         </text>
                       </g>
@@ -839,7 +1051,14 @@ onMounted(() => {
                             font-weight="500"
                             letter-spacing="0em"
                           >
-                            <tspan x="37.2812" y="415.736">11/27</tspan>
+                            <tspan x="37.2812" y="415.736">
+                              <tspan class="card-expiry">1</tspan>
+                              <tspan class="card-expiry">1/</tspan>
+                              <tspan class="card-expiry">2</tspan>
+                              <tspan class="card-expiry">0</tspan>
+                              <tspan class="card-expiry">2</tspan>
+                              <tspan class="card-expiry">7</tspan>
+                            </tspan>
                           </text>
                         </g>
                         <path
@@ -867,7 +1086,9 @@ onMounted(() => {
                               letter-spacing="0em"
                             >
                               <tspan x="201.387" y="412.151">
-                                &#x26ab; &#x26ab; &#x26ab;
+                                <tspan class="cvc">&#x26ab;&nbsp;</tspan>
+                                <tspan class="cvc">&#x26ab;&nbsp;</tspan>
+                                <tspan class="cvc">&#x26ab;&nbsp;</tspan>
                               </tspan>
                             </text>
                           </g>
@@ -909,7 +1130,7 @@ onMounted(() => {
                     fill="#697386"
                     xml:space="preserve"
                     style="white-space: pre"
-                    font-family="SF Pro Display"
+                    font-family="Montserrat"
                     font-size="14"
                     letter-spacing="0.005em"
                   >
@@ -934,7 +1155,15 @@ onMounted(() => {
                       font-weight="500"
                       letter-spacing="0em"
                     >
-                      <tspan x="37.1953" y="505.736">John Doe</tspan>
+                      <tspan x="37.1953" y="505.736">
+                        <tspan class="card-name">J</tspan>
+                        <tspan class="card-name">o</tspan>
+                        <tspan class="card-name">h</tspan>
+                        <tspan class="card-name">n&nbsp;</tspan>
+                        <tspan class="card-name">D</tspan>
+                        <tspan class="card-name">o</tspan>
+                        <tspan class="card-name">e</tspan>
+                      </tspan>
                     </text>
                     <rect
                       x="25.5"
@@ -954,7 +1183,7 @@ onMounted(() => {
                       fill="#697386"
                       xml:space="preserve"
                       style="white-space: pre"
-                      font-family="SF Pro Display"
+                      font-family="Montserrat"
                       font-size="14"
                       letter-spacing="0.005em"
                     >
@@ -1021,7 +1250,7 @@ onMounted(() => {
                     />
                   </g>
                 </g>
-                <g id="Pay Button" filter="url(#filter7_ddd_0_1)">
+                <g id="pay-button" filter="url(#filter7_ddd_0_1)">
                   <rect
                     x="25"
                     y="671"
@@ -1045,7 +1274,7 @@ onMounted(() => {
                   </text>
                   <g id="pay-button-spinner">
                     <path
-                      id="Vector_10"
+                      id="pay-button-spinner-path"
                       d="M220.112 695.07C220.652 695.07 221.094 694.632 221.036 694.095C220.551 689.601 216.745 686.102 212.121 686.102C207.498 686.102 203.691 689.601 203.205 694.095C203.147 694.632 203.59 695.07 204.129 695.07C204.669 695.07 205.098 694.631 205.173 694.097C205.647 690.683 208.577 688.055 212.121 688.055C215.665 688.055 218.595 690.683 219.069 694.097C219.143 694.631 219.573 695.07 220.112 695.07Z"
                       fill="white"
                     />
@@ -5411,21 +5640,53 @@ onMounted(() => {
         />
       </defs>
     </svg>
+    <div class="animated-svg-description">
+      <h2>8SQM</h2>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem">
+        <p>8SQM is an on-demand solution for booking car wash services.</p>
+        <p>
+          Worked on the backend for 8SQM using Node.js and MongoDB from scratch.
+          Integrated Stripe for payments, Twilio for sending SMS, and GeoJSON
+          for storing coordinates.
+        </p>
+      </div>
+      <button
+        :class="{ 'hide-restart-animation-button': !showRestartButton }"
+        @click.stop="restartAnimation"
+      >
+        Restart Animation
+      </button>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .animated-svg-container {
-  height: 100vh;
-  height: 100dvh;
+  height: calc(100vh - 4rem);
+  height: calc(100dvh - 4rem);
+  padding: 2rem;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 2rem;
 }
 
 .animated-svg-container svg {
-  height: 90%;
+  max-width: 100%;
+  height: auto;
+}
+
+.animated-svg-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+h2 {
+  margin: 0;
 }
 
 #loading-page,
@@ -5443,37 +5704,51 @@ onMounted(() => {
 #cursor,
 .login-input-text,
 .service-marker,
-#service-selected-container {
+#service-selected-container,
+.card-number,
+#Cards,
+.stripe-email,
+.card-expiry,
+.cvc,
+.card-name,
+#success-page,
+#success-icon-circle,
+#success-icon-check,
+#success-message-container,
+#schedule-booking-container,
+#success-page-btn {
   opacity: 0;
   transform-origin: center;
 }
 
+#login-phone-continue-button,
+#login-otp-continue-button,
+#book-now-button,
+#order-pay-now,
+#pay-button {
+  filter: contrast(1);
+}
+
+#pay-button-spinner {
+  opacity: 0;
+}
+
 #minute-hand-loading-clock {
-  transform: translateY(-2px) rotate(0);
   transform-origin: center;
-  animation: minuteHandRotation 0.5s linear infinite;
+  animation: clockHandRotation 0.5s linear infinite;
 }
 
 #hour-hand-loading-clock {
   transform-origin: center;
-  animation: hourHandRotation 3s linear infinite;
+  animation: clockHandRotation 3s linear infinite;
 }
 
-@keyframes hourHandRotation {
+@keyframes clockHandRotation {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes minuteHandRotation {
-  0% {
-    transform: translateY(-2px) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-2px) rotate(360deg);
   }
 }
 
@@ -5489,10 +5764,15 @@ onMounted(() => {
 #date-picker-calendar {
   display: none;
 }
-</style>
 
-<style>
-.hashbinary-8sqm-body {
-  background: linear-gradient(360deg, #6363ff -23.57%, #00d7ff 73.36%);
+@media screen and (min-width: 1024px) {
+  .animated-svg-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .animated-svg-description {
+    max-width: 32rem;
+  }
 }
 </style>
