@@ -577,7 +577,7 @@ onMounted(() => {
                   font-weight="600"
                   letter-spacing="0.2px"
                 >
-                  <tspan x="183.417" y="812.17">Done</tspan>
+                  <tspan x="130" y="812.17">View Bookings</tspan>
                 </text>
               </g>
               <g id="schedule-booking-container">
@@ -735,13 +735,12 @@ onMounted(() => {
                       font-weight="500"
                       letter-spacing="0em"
                     >
-                      <tspan x="75.0967" y="325.519">
-                        Your transaction is successfully
+                      <tspan x="89" y="325.519">
+                        Your transaction is successful and
                       </tspan>
-                      <tspan x="74.3037" y="346.519">
-                        completed and your booking is confirmed.
+                      <tspan x="113" y="346.519">
+                        your booking is confirmed.
                       </tspan>
-                      <tspan x="123.584" y="367.519">Details below</tspan>
                     </text>
                   </g>
                 </g>
@@ -5683,6 +5682,8 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-inline: 1rem;
+  max-width: 375px;
 }
 
 h2 {
