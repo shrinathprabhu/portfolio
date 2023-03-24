@@ -7,6 +7,11 @@ const timeline = gsap.timeline({ delay: 0.2 });
 const timelineRestart = useTimelineRestart(timeline);
 const hotelListPrice = ref(["AUD 582", "AUD 347"]);
 const pricingerSwitchStateTooltip = ref("Switch ON");
+const selectedConfig = reactive({
+  os: "Select an operating system",
+  browser: "Select a browser",
+  proxy: "Select a proxy location",
+});
 
 useHead({
   title:
@@ -33,18 +38,19 @@ useHead({
 function startCirclePathAnimation(
   timeline: gsap.core.Timeline,
   element: string,
-  pathLength: number
+  pathLength: number,
+  delay = 0
 ) {
   timeline
     .to(element, {
       strokeDasharray: pathLength,
       strokeDashoffset: -pathLength + 1,
+      delay,
     })
     .to(element, { opacity: 1, duration: 0.1 })
     .to(element, {
       strokeDashoffset: 0,
       duration: 0.5,
-      delay: 0.25,
     })
     .to(element, { opacity: 0, delay: 0.5 });
 
@@ -148,7 +154,8 @@ onMounted(() => {
           timeline,
           "#pricinger-icon-highlight",
           pricingerHighlightPathLength
-        )
+        ),
+        "-=1"
       )
       .to("#pricinger-icon", { filter: "none", duration: 0.2 }, "<")
       .to("#mouse-cursor", {
@@ -208,7 +215,6 @@ onMounted(() => {
         {
           y: -850,
           duration: 0.4,
-          delay: 0.3,
         },
         "<"
       )
@@ -222,10 +228,10 @@ onMounted(() => {
       .fromTo(
         "#tab-two-frame",
         {
-          x: -100,
+          x: -40,
         },
         {
-          x: 0,
+          x: -24,
           opacity: 1,
           duration: 0.3,
           delay: 0.2,
@@ -234,7 +240,15 @@ onMounted(() => {
       .to(
         "#add-tab-plus-icon",
         {
-          x: 0,
+          x: -24,
+          duration: 0.3,
+        },
+        "<"
+      )
+      .to(
+        "#tab-one-frame",
+        {
+          opacity: 0.65,
           duration: 0.3,
         },
         "<"
@@ -247,8 +261,220 @@ onMounted(() => {
         },
         "<"
       )
+      .to("#booking-domain", { opacity: 0, duration: 0.1 }, "<")
+      .to(
+        "#pricinger-extension-domain",
+        { opacity: 1, duration: 0.1, delay: 0.1 },
+        "<"
+      )
       .to(
         "#pricinger-window",
+        {
+          opacity: 1,
+          duration: 0.1,
+          delay: 0.2,
+        },
+        "<"
+      )
+      .to("#pricinger-extension-popup", { opacity: 0 }, "<")
+      .to("#mouse-cursor", {
+        x: -360,
+        duration: 0.6,
+        delay: 0.2,
+      })
+      .to(
+        "#mouse-cursor",
+        {
+          y: -490,
+          duration: 0.3,
+        },
+        "<"
+      )
+      .to(
+        "#clear-local-storage-checkbox .checkbox-fill, #clear-local-storage-text",
+        {
+          fill: "#2B5071",
+          opacity: 1,
+          duration: 0.1,
+          delay: 0.1,
+        }
+      )
+      .to("#mouse-cursor", {
+        y: -450,
+        duration: 0.3,
+        delay: 0.1,
+      })
+      .to(
+        "#clear-session-storage-checkbox .checkbox-fill, #clear-session-storage-text",
+        {
+          fill: "#2B5071",
+          opacity: 1,
+          duration: 0.1,
+          delay: 0.1,
+        }
+      )
+      .to("#mouse-cursor", {
+        y: -370,
+        duration: 0.3,
+        delay: 0.1,
+      })
+      .to("#clear-cookies-checkbox .checkbox-fill, #clear-cookies-text", {
+        fill: "#2B5071",
+        opacity: 1,
+        duration: 0.1,
+        delay: 0.1,
+      })
+      .to("#mouse-cursor", {
+        x: -820,
+        duration: 0.4,
+        delay: 0.1,
+      })
+      .to(
+        "#mouse-cursor",
+        {
+          y: -450,
+          duration: 0.2,
+        },
+        "<"
+      )
+      .to("#block-location-checkbox .checkbox-fill, #block-location-text", {
+        fill: "#2B5071",
+        opacity: 1,
+        duration: 0.1,
+        delay: 0.1,
+      })
+      .to("#mouse-cursor", {
+        x: -600,
+        duration: 0.4,
+        delay: 0.1,
+      })
+      .to(
+        "#mouse-cursor",
+        {
+          y: -140,
+          duration: 0.2,
+        },
+        "<"
+      )
+      .fromTo(
+        "#browser-dropdown-options-container",
+        { y: -10 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.15,
+          delay: 0.1,
+        }
+      )
+      .to("#mouse-cursor", {
+        x: -800,
+        duration: 0.4,
+        delay: 0.1,
+      })
+      .to(
+        "#mouse-cursor",
+        {
+          y: 20,
+          duration: 0.2,
+        },
+        "<"
+      )
+      .add(() => {
+        selectedConfig.browser = "Brave Browser";
+      })
+      .to("#selected-browser-dropdown-value", {
+        fontWeight: "500",
+        fontSize: "18",
+      })
+      .to("#browser-dropdown-options-container", {
+        opacity: 0,
+        y: -10,
+        duration: 0.2,
+      })
+      .to("#mouse-cursor", {
+        x: -1050,
+        duration: 0.4,
+        delay: 0.1,
+      })
+      .to(
+        "#mouse-cursor",
+        {
+          y: -140,
+          duration: 0.2,
+        },
+        "<"
+      )
+      .fromTo(
+        "#proxy-dropdown-options-container",
+        { y: -10 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.15,
+          delay: 0.1,
+        }
+      )
+      .to("#mouse-cursor", {
+        x: -1100,
+        duration: 0.4,
+        delay: 0.1,
+      })
+      .to(
+        "#mouse-cursor",
+        {
+          y: -100,
+          duration: 0.2,
+        },
+        "<"
+      )
+      .add(() => {
+        selectedConfig.proxy = "Ljubljana, Slovenia (Free)";
+      })
+      .to("#selected-proxy-dropdown-value", {
+        fontWeight: "500",
+        fontSize: "18",
+      })
+      .to("#proxy-dropdown-options-container", {
+        opacity: 0,
+        y: -10,
+        duration: 0.2,
+      })
+      .to("#mouse-cursor", {
+        x: -1200,
+        duration: 0.2,
+        delay: 0.1,
+      })
+      .to(
+        "#mouse-cursor",
+        {
+          y: -1070,
+          duration: 0.6,
+        },
+        "<"
+      )
+      .to("#tab-one-frame", {
+        opacity: 1,
+        duration: 0.2,
+        delay: 0.1,
+      })
+      .to(
+        "#tab-two-frame",
+        {
+          opacity: 0.65,
+          duration: 0.2,
+        },
+        "<"
+      )
+      .to(
+        "#pricinger-window",
+        {
+          opacity: 0,
+          duration: 0.2,
+        },
+        "<"
+      )
+      .to(
+        "#hotel-list",
         {
           opacity: 1,
           duration: 0.1,
@@ -2143,7 +2369,7 @@ onMounted(() => {
                         letter-spacing="0.2px"
                       >
                         <tspan x="104" y="957.736">
-                          Select a proxy location
+                          <tspan>{{ selectedConfig.proxy }}</tspan>
                         </tspan>
                       </text>
                       <path
@@ -2226,7 +2452,9 @@ onMounted(() => {
                         font-size="16"
                         letter-spacing="0.2px"
                       >
-                        <tspan x="562" y="957.736">Select a browser</tspan>
+                        <tspan x="562" y="957.736">
+                          {{ selectedConfig.browser }}
+                        </tspan>
                       </text>
                       <path
                         id="select-browser-dropdown-arrow"
@@ -2277,7 +2505,7 @@ onMounted(() => {
                         letter-spacing="0.2px"
                       >
                         <tspan x="562" y="1054.74">
-                          Select an operating system
+                          <tspan>{{ selectedConfig.os }}</tspan>
                         </tspan>
                       </text>
                       <path
