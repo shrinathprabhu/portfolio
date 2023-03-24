@@ -100,13 +100,9 @@ onMounted(() => {
     const pricingerHighlightPathLength = getSvgPathLength(
       "#pricinger-icon-highlight"
     );
-    const hotelListHightlightPathLength = getSvgPathLength(
+    const hotelListHighlightPathLength = getSvgPathLength(
       ".hotel-list-highlight"
     );
-    console.log({
-      pricingerHighlightPathLength,
-      hotelListHightlightPathLength,
-    });
 
     timeline
       .to("#mouse-cursor", {
@@ -179,7 +175,7 @@ onMounted(() => {
         startCirclePathAnimation(
           timeline,
           ".hotel-list-highlight",
-          hotelListHightlightPathLength
+          hotelListHighlightPathLength
         )
       )
       .add(moveCursorToPricingerExtensionIcon(timeline))
@@ -2339,6 +2335,7 @@ onMounted(() => {
                       <g id="custom-checkbox">
                         <text
                           id="clear-local-storage-text"
+                          class="storage-text"
                           fill="#737373"
                           xml:space="preserve"
                           style="white-space: pre"
@@ -2348,10 +2345,10 @@ onMounted(() => {
                           letter-spacing="0.2px"
                         >
                           <tspan x="1042" y="608.453">
-                            Clear local storage
+                            <tspan>Clear local storage</tspan>
                           </tspan>
                         </text>
-                        <g id="clear-local-storage-checkbox">
+                        <g id="clear-local-storage-checkbox" class="checkbox">
                           <rect
                             x="1003"
                             y="591"
@@ -2359,6 +2356,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill checkbox-storage"
                           />
                           <g id="bi:check" clip-path="url(#clip16_0_1)">
                             <g id="Group">
@@ -2387,6 +2385,7 @@ onMounted(() => {
                       <g id="custom-checkbox_2">
                         <text
                           id="clear-session-storage-text"
+                          class="storage-text"
                           fill="#252B42"
                           xml:space="preserve"
                           style="white-space: pre"
@@ -2396,10 +2395,10 @@ onMounted(() => {
                           letter-spacing="0.2px"
                         >
                           <tspan x="1042" y="651.453">
-                            Clear session storage
+                            <tspan>Clear session storage</tspan>
                           </tspan>
                         </text>
-                        <g id="clear-session-storage-checkbox">
+                        <g id="clear-session-storage-checkbox" class="checkbox">
                           <rect
                             x="1003"
                             y="634"
@@ -2407,6 +2406,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill checkbox-storage"
                           />
                           <g id="bi:check_2" clip-path="url(#clip17_0_1)">
                             <g id="Group_2">
@@ -2435,6 +2435,7 @@ onMounted(() => {
                       <g id="custom-checkbox_3">
                         <text
                           id="clear-cache-text"
+                          class="storage-text"
                           fill="#737373"
                           xml:space="preserve"
                           style="white-space: pre"
@@ -2445,7 +2446,7 @@ onMounted(() => {
                         >
                           <tspan x="1042" y="693.453">Clear cache</tspan>
                         </text>
-                        <g id="clear-cache-checkbox">
+                        <g id="clear-cache-checkbox" class="checkbox">
                           <rect
                             x="1003"
                             y="676"
@@ -2453,6 +2454,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill checkbox-storage"
                           />
                           <g id="bi:check_3" clip-path="url(#clip18_0_1)">
                             <g id="Group_3">
@@ -2481,6 +2483,7 @@ onMounted(() => {
                       <g id="custom-checkbox_4">
                         <text
                           id="clear-cookies-text"
+                          class="storage-text"
                           fill="#252B42"
                           xml:space="preserve"
                           style="white-space: pre"
@@ -2491,7 +2494,7 @@ onMounted(() => {
                         >
                           <tspan x="1042" y="735.453">Clear cookies</tspan>
                         </text>
-                        <g id="clear-cookies-checkbox">
+                        <g id="clear-cookies-checkbox" class="checkbox">
                           <rect
                             x="1003"
                             y="719"
@@ -2499,6 +2502,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill checkbox-storage"
                           />
                           <g id="bi:check_4" clip-path="url(#clip19_0_1)">
                             <g id="Group_4">
@@ -2527,6 +2531,7 @@ onMounted(() => {
                       <g id="custom-checkbox_5">
                         <text
                           id="clear-all-text"
+                          class="storage-text"
                           fill="#737373"
                           xml:space="preserve"
                           style="white-space: pre"
@@ -2536,10 +2541,10 @@ onMounted(() => {
                           letter-spacing="0.2px"
                         >
                           <tspan x="1042" y="778.453">
-                            Clear all of the above
+                            <tspan>Clear all of the above</tspan>
                           </tspan>
                         </text>
-                        <g id="clear-all-checkbox">
+                        <g id="clear-all-checkbox" class="checkbox">
                           <rect
                             x="1003"
                             y="761"
@@ -2547,6 +2552,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill checkbox-storage"
                           />
                           <g id="bi:check_5" clip-path="url(#clip20_0_1)">
                             <g id="Group_5">
@@ -2610,19 +2616,19 @@ onMounted(() => {
                         <text
                           id="block-ads-text"
                           fill="#2B5071"
-                          fill-opacity="0.75"
                           xml:space="preserve"
                           style="white-space: pre"
                           font-family="Montserrat"
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="privacy-text"
                         >
                           <tspan x="584" y="608.453">
-                            Block ads and trackers
+                            <tspan>Block ads and trackers</tspan>
                           </tspan>
                         </text>
-                        <g id="block-ads-checkbox">
+                        <g id="block-ads-checkbox" class="checkbox">
                           <rect
                             x="545"
                             y="590"
@@ -2630,6 +2636,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_6">
                             <g id="Group_6">
@@ -2659,19 +2666,19 @@ onMounted(() => {
                         <text
                           id="block-location-text"
                           fill="#2B5071"
-                          fill-opacity="0.75"
                           xml:space="preserve"
                           style="white-space: pre"
                           font-family="Montserrat"
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="privacy-text"
                         >
                           <tspan x="584" y="650.453">
-                            Block location access
+                            <tspan>Block location access</tspan>
                           </tspan>
                         </text>
-                        <g id="block-location-checkbox">
+                        <g id="block-location-checkbox" class="checkbox">
                           <rect
                             x="545"
                             y="632"
@@ -2679,6 +2686,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_7">
                             <g id="Group_7">
@@ -2714,10 +2722,11 @@ onMounted(() => {
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="privacy-text"
                         >
                           <tspan x="584" y="692.453">Disallow Cookies</tspan>
                         </text>
-                        <g id="disallow-cookies-checkbox">
+                        <g id="disallow-cookies-checkbox" class="checkbox">
                           <rect
                             x="545"
                             y="675"
@@ -2725,6 +2734,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_8">
                             <g id="Group_8">
@@ -2760,12 +2770,13 @@ onMounted(() => {
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="privacy-text"
                         >
                           <tspan x="584" y="736.453">
-                            Enable Do-Not-Track header
+                            <tspan>Enable Do-Not-Track header</tspan>
                           </tspan>
                         </text>
-                        <g id="enable-dnt-checkbox">
+                        <g id="enable-dnt-checkbox" class="checkbox">
                           <rect
                             x="545"
                             y="718"
@@ -2773,6 +2784,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_9">
                             <g id="Group_9">
@@ -2808,10 +2820,11 @@ onMounted(() => {
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="privacy-text"
                         >
                           <tspan x="584" y="779.453">Enable all settings</tspan>
                         </text>
-                        <g id="enable-all-settings-checkbox">
+                        <g id="enable-all-settings-checkbox" class="checkbox">
                           <rect
                             x="545"
                             y="761"
@@ -2819,6 +2832,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_10">
                             <g id="Group_10">
@@ -2882,17 +2896,17 @@ onMounted(() => {
                         <text
                           id="switch-ip-address-text"
                           fill="#2B5071"
-                          fill-opacity="0.75"
                           xml:space="preserve"
                           style="white-space: pre"
                           font-family="Montserrat"
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="browsing-text"
                         >
                           <tspan x="126" y="609.453">Switch IP address</tspan>
                         </text>
-                        <g id="switch-ip-address-checkbox">
+                        <g id="switch-ip-address-checkbox" class="checkbox">
                           <rect
                             x="87"
                             y="591"
@@ -2900,6 +2914,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_11">
                             <g id="Group_11">
@@ -2929,19 +2944,19 @@ onMounted(() => {
                         <text
                           id="switch-useragent-text"
                           fill="#2B5071"
-                          fill-opacity="0.75"
                           xml:space="preserve"
                           style="white-space: pre"
                           font-family="Montserrat"
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="browsing-text"
                         >
                           <tspan x="126" y="651.453">
-                            Switch browser&#x2019;s user agent
+                            <tspan>Switch browser&#x2019;s user agent</tspan>
                           </tspan>
                         </text>
-                        <g id="switch-useragent-checkbox">
+                        <g id="switch-useragent-checkbox" class="checkbox">
                           <rect
                             x="87"
                             y="633"
@@ -2949,6 +2964,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_12">
                             <g id="Group_12">
@@ -2984,10 +3000,11 @@ onMounted(() => {
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="browsing-text"
                         >
                           <tspan x="126" y="694.453">Switch both</tspan>
                         </text>
-                        <g id="switch-both-checkbox">
+                        <g id="switch-both-checkbox" class="checkbox">
                           <rect
                             x="87"
                             y="676"
@@ -2995,6 +3012,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_13">
                             <g id="Group_13">
@@ -3030,10 +3048,11 @@ onMounted(() => {
                           font-size="18"
                           font-weight="600"
                           letter-spacing="0.2px"
+                          class="browsing-text"
                         >
                           <tspan x="126" y="737.453">Enable mobile view</tspan>
                         </text>
-                        <g id="enable-mobile-view-checkbox">
+                        <g id="enable-mobile-view-checkbox" class="checkbox">
                           <rect
                             x="87"
                             y="719"
@@ -3041,6 +3060,7 @@ onMounted(() => {
                             height="23"
                             rx="4"
                             fill="#2B5071"
+                            class="checkbox-fill"
                           />
                           <g id="bi:check_14">
                             <g id="Group_14">
@@ -5246,7 +5266,11 @@ svg {
 #booking-domain-search-location,
 #booking-domain-search-date,
 #booking-domain-search-hotel,
-.hotel-list-highlight {
+.hotel-list-highlight,
+.checkbox-fill,
+#proxy-dropdown-options-container,
+#browser-dropdown-options-container,
+#os-dropdown-options-container {
   opacity: 0;
 }
 
@@ -5274,5 +5298,11 @@ svg {
 
 #add-tab-plus-icon {
   translate: -178px;
+}
+
+.storage-text,
+.privacy-text,
+.browsing-text {
+  fill: #737373;
 }
 </style>
