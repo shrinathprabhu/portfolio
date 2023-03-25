@@ -284,15 +284,20 @@ onMounted(() => {
             </div>
           </div>
           <div class="flex" style="margin-top: 1rem">
-            <a
-              id="read-my-blog"
-              href="https://medium.com/arcana-network-blog/vue-3-composition-api-basics-and-patterns-44813f2c785d"
-              target="_blank"
-              rel="noopener"
-              class="link-button fade-in-right"
-              style="animation-delay: calc(3.85 * var(--duration-fade-in))"
-              >Read my blog</a
+            <VTooltip
+              text="Btw, this blog ranks top in Google Search for various keywords related to Vue 3 Composition API"
+              direction="top"
             >
+              <a
+                id="read-my-blog"
+                href="https://medium.com/arcana-network-blog/vue-3-composition-api-basics-and-patterns-44813f2c785d"
+                target="_blank"
+                rel="noopener"
+                class="link-button fade-in-right"
+                style="animation-delay: calc(3.85 * var(--duration-fade-in))"
+                >Read my blog</a
+              >
+            </VTooltip>
           </div>
         </div>
       </section>

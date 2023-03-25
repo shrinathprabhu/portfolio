@@ -1,6 +1,7 @@
 <script setup lang="ts">
 type TooltipProps = {
   text: string;
+  direction?: "top" | "bottom";
 };
 
 const props = defineProps<TooltipProps>();
@@ -9,7 +10,7 @@ const props = defineProps<TooltipProps>();
 <template>
   <div class="tooltip-wrapper" aria-haspopup="listbox">
     <slot />
-    <div class="tooltip">{{ props.text }}</div>
+    <div class="tooltip" :class="props.direction">{{ props.text }}</div>
   </div>
 </template>
 
@@ -31,6 +32,11 @@ const props = defineProps<TooltipProps>();
   border-radius: 0.5rem;
   box-shadow: var(--shadow-sm);
   font-size: var(--fs-sm);
+}
+
+.tooltip.top {
+  bottom: 100%;
+  top: unset;
 }
 
 .tooltip-wrapper:where(:hover, :focus-visible) .tooltip {
