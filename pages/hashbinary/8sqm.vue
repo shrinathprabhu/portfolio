@@ -439,7 +439,7 @@ onMounted(() => {
       delay: 0.1,
     });
 
-  timeline.restart();
+  timeline.play(0);
 });
 </script>
 
