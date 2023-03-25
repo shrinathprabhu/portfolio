@@ -5682,10 +5682,6 @@ onMounted(() => {
   max-width: 375px;
 }
 
-h2 {
-  margin: 0;
-}
-
 #loading-page,
 #login-page,
 #service-selection-page,

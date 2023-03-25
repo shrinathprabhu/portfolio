@@ -5761,10 +5761,6 @@ svg {
   margin-bottom: 2rem;
 }
 
-h2 {
-  margin: 0;
-}
-
 #booking-home,
 #hotel-list,
 #hotel-details-page,
