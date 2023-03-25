@@ -19,7 +19,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content: "Pricinger - Save money on bookings",
+      content: "Pricinger - Get the best prices on bookings",
     },
   ],
   link: [
