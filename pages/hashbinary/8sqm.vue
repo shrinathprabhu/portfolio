@@ -443,7 +443,7 @@ onMounted(() => {
       delay: 0.1,
     });
 
-  timeline.play();
+  timeline.restart();
 });
 </script>
 
