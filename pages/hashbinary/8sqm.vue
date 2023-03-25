@@ -45,6 +45,27 @@ function startOtpTimer() {
   }, 1000);
 }
 
+onBeforeMount(() => {
+  timeline
+    .from(
+      `#loading-page, #login-page, #service-selection-page, #order-details-page, #stripe-page, #success-page, 
+      #login-otp-data-container,  #login-car-wash-logo, .login-logo-text, #car-wash-illustration, 
+      #login-description, #login-input-data-container, #cursor, .login-input-text, .service-marker, 
+      #service-selected-container, .card-number, #Cards, .stripe-email, .card-expiry, .cvc, .card-name, 
+      #success-page, #success-icon-circle, #success-icon-check, #success-message-container, 
+      #schedule-booking-container, #success-page-btn, #pay-button-spinner, .service-marker`,
+      {
+        opacity: 0,
+      }
+    )
+    .from(
+      `#login-phone-continue-button, #login-otp-continue-button, #book-now-button, #order-pay-now, #pay-button`,
+      {
+        filter: "contrast(1)",
+      }
+    );
+});
+
 onMounted(() => {
   const successCheckPathLength = getSvgPathLength("#success-icon-check");
 
