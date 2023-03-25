@@ -442,6 +442,8 @@ onMounted(() => {
       duration: 0.3,
       delay: 0.1,
     });
+
+  timeline.play();
 });
 </script>
 
