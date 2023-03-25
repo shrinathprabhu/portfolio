@@ -45,7 +45,9 @@ function startOtpTimer() {
   }, 1000);
 }
 
-onBeforeMount(() => {
+onMounted(() => {
+  const successCheckPathLength = getSvgPathLength("#success-icon-check");
+
   timeline
     .from(
       `#loading-page, #login-page, #service-selection-page, #order-details-page, #stripe-page, #success-page, 
@@ -63,13 +65,7 @@ onBeforeMount(() => {
       {
         filter: "contrast(1)",
       }
-    );
-});
-
-onMounted(() => {
-  const successCheckPathLength = getSvgPathLength("#success-icon-check");
-
-  timeline
+    )
     .to("#login-page", {
       opacity: 1,
     })
