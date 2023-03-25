@@ -1,24 +1,25 @@
 <script setup lang="ts">
 import gsap from "gsap";
+import { useTimelineRestart } from "@/composables/useTimelineRestart";
+import { getSvgPathLength } from "@/utils/getSvgPathLength";
 
 const otpTimerSeconds = ref(59);
-const timeline = gsap.timeline({ delay: 0.2 });
 const hoverEffect = {
   filter: "contrast(1.25)",
   duration: 0.1,
 };
-const showRestartButton = ref(false);
 
-timeline.eventCallback("onComplete", () => {
-  showRestartButton.value = true;
-});
+const timeline = gsap.timeline({ delay: 0.2 });
+const timelineRestart = useTimelineRestart(timeline);
+
+watch(timelineRestart.show, () => console.log(timelineRestart.show.value));
 
 useHead({
-  title: "Created backend for 8SQM | Shrinath Prabhu | Web Developer",
+  title: "Worked on backend for 8SQM | Shrinath Prabhu | Web Developer",
   meta: [
     {
       name: "description",
-      content: "An animated way of showing the app that wa",
+      content: "8SQM - Booking car wash services made easy",
     },
   ],
   link: [
@@ -44,15 +45,8 @@ function startOtpTimer() {
   }, 1000);
 }
 
-function restartAnimation() {
-  timeline.restart();
-  showRestartButton.value = false;
-}
-
 onMounted(() => {
-  const successCheckPathLength = (
-    document.querySelector("#success-icon-check") as SVGPathElement
-  ).getTotalLength();
+  const successCheckPathLength = getSvgPathLength("#success-icon-check");
 
   timeline
     .to("#login-page", {
@@ -5650,8 +5644,10 @@ onMounted(() => {
         </p>
       </div>
       <button
-        :class="{ 'hide-restart-animation-button': !showRestartButton }"
-        @click.stop="restartAnimation"
+        :class="{
+          'hide-restart-animation-button': !timelineRestart.show.value,
+        }"
+        @click.stop="timelineRestart.restart"
       >
         Restart Animation
       </button>
