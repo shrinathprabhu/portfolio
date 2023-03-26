@@ -13,10 +13,7 @@ const works = [
       width: "160",
       height: "127",
     },
-    link: {
-      src: "https://www.arcana.network/",
-      rel: "noopener",
-    },
+    link: "/arcana",
   },
   {
     tooltip: "Hashbinary Services - 2018-2021",
@@ -27,10 +24,7 @@ const works = [
       width: "426",
       height: "400",
     },
-    link: {
-      src: "https://hashbinary.com/",
-      rel: "noopener",
-    },
+    link: "/hashbinary",
   },
 ];
 
@@ -193,11 +187,9 @@ onMounted(() => {
               :key="work.tooltip"
               :text="work.tooltip"
             >
-              <a
+              <NuxtLink
                 class="flex work-link fade-in"
-                :href="work.link.src"
-                target="_blank"
-                :rel="work.link.rel"
+                :to="work.link"
                 :style="`animation-delay: calc(${
                   3 + (index + 1) * 0.35
                 } * var(--duration-fade-in))`"
@@ -217,7 +209,7 @@ onMounted(() => {
                     :height="work.logo.height"
                   />
                 </picture>
-              </a>
+              </NuxtLink>
             </VTooltip>
           </div>
         </div>
