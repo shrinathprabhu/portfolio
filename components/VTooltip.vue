@@ -1,10 +1,12 @@
 <script setup lang="ts">
 type TooltipProps = {
   text: string;
-  direction?: "top" | "bottom";
+  direction?: "top" | "bottom" | "left" | "right";
 };
 
-const props = defineProps<TooltipProps>();
+const props = withDefaults(defineProps<TooltipProps>(), {
+  direction: "bottom",
+});
 </script>
 
 <template>
@@ -23,7 +25,6 @@ const props = defineProps<TooltipProps>();
 .tooltip {
   display: none;
   position: absolute;
-  top: 100%;
   width: max-content;
   max-width: 300px;
   z-index: 10000;
@@ -36,7 +37,20 @@ const props = defineProps<TooltipProps>();
 
 .tooltip.top {
   bottom: 100%;
-  top: unset;
+}
+
+.tooltip.left {
+  top: 0;
+  right: 100%;
+}
+
+.tooltip.bottom {
+  top: 100%;
+}
+
+.tooltip.right {
+  top: 0;
+  left: 100%;
 }
 
 .tooltip-wrapper:where(:hover, :focus-visible) .tooltip {

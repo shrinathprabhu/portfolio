@@ -285,7 +285,7 @@ onMounted(() => {
           </div>
           <div class="flex" style="margin-top: 1rem">
             <VTooltip
-              text="Btw, this blog ranks top in Google Search for various keywords related to Vue 3 Composition API"
+              text="Btw, this blog ranks top in Google Search for various keywords related to Vue 3 Composition API 😎"
               direction="top"
             >
               <a
