@@ -13,10 +13,7 @@ const works = [
       width: "160",
       height: "127",
     },
-    link: {
-      src: "https://www.arcana.network/",
-      rel: "noopener",
-    },
+    link: "/arcana",
   },
   {
     tooltip: "Hashbinary Services - 2018-2021",
@@ -27,10 +24,7 @@ const works = [
       width: "426",
       height: "400",
     },
-    link: {
-      src: "https://hashbinary.com/",
-      rel: "noopener",
-    },
+    link: "/hashbinary",
   },
 ];
 
@@ -80,18 +74,6 @@ const skills = [
     name: "Wordpress",
   },
 ];
-
-useHead({
-  script: [
-    {
-      children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;j.defer=true;
-        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PLJ5D24');`,
-    },
-  ],
-});
 
 function animateSkills(
   animatedSkillLogos: NodeListOf<Element>,
@@ -205,11 +187,9 @@ onMounted(() => {
               :key="work.tooltip"
               :text="work.tooltip"
             >
-              <a
+              <NuxtLink
                 class="flex work-link fade-in"
-                :href="work.link.src"
-                target="_blank"
-                :rel="work.link.rel"
+                :to="work.link"
                 :style="`animation-delay: calc(${
                   3 + (index + 1) * 0.35
                 } * var(--duration-fade-in))`"
@@ -229,7 +209,7 @@ onMounted(() => {
                     :height="work.logo.height"
                   />
                 </picture>
-              </a>
+              </NuxtLink>
             </VTooltip>
           </div>
         </div>

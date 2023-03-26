@@ -421,6 +421,8 @@ onMounted(() => {
       duration: 0.3,
       delay: 0.1,
     });
+
+  timeline.play(0);
 });
 </script>
 
@@ -5680,10 +5682,6 @@ onMounted(() => {
   gap: 1rem;
   margin-inline: 1rem;
   max-width: 375px;
-}
-
-h2 {
-  margin: 0;
 }
 
 #loading-page,

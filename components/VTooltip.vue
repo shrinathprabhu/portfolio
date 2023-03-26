@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<TooltipProps>(), {
 .tooltip-wrapper {
   position: relative;
   width: max-content;
+  max-width: 100%;
 }
 
 .tooltip {

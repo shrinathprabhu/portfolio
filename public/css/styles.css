@@ -75,6 +75,7 @@ h1 {
   font-size: var(--fs-xxxl);
 }
 
+h2,
 h3 {
   margin: 0;
   padding: 0;
