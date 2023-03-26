@@ -5782,17 +5782,15 @@ svg {
 .checkbox-fill,
 #proxy-dropdown-options-container,
 #browser-dropdown-options-container,
-#os-dropdown-options-container {
+#os-dropdown-options-container,
+#pricinger-icon-highlight,
+#tab-two-frame {
   opacity: 0;
 }
 
 #pricinger-optimize-button,
 #pricinger-switch-on-off-button {
   opacity: 0.6;
-}
-
-#pricinger-icon-highlight {
-  opacity: 0;
 }
 
 #pricinger-icon {
@@ -5802,10 +5800,6 @@ svg {
 #google-domain-select,
 #booking-domain-select {
   fill: none;
-}
-
-#tab-two-frame {
-  opacity: 0;
 }
 
 #add-tab-plus-icon {
