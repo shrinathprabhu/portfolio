@@ -5723,6 +5723,7 @@ onMounted(() => {
               optimized settings, scrapes the data, compares it, and stores the
               optimized config in our database.
             </li>
+            <li>Used maxmind for identifying location of user from his IP.</li>
           </ul>
         </div>
       </div>

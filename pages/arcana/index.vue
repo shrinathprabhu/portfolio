@@ -5,7 +5,7 @@ const arcanaProjects = [
     tagline:
       "End-to-end encrypted attachments in Gmail, powered by blockchain.",
     work: "Worked as frontend developer for Skizzle.",
-    techUsed: "Chrome extension, Vue, InboxSDK",
+    techUsed: "Chrome extension, Vue, InboxSDK, Gmail.js",
     link: "https://www.youtube.com/watch?v=y1r9orwuW7k",
     externalLink: true,
     tooltip:
@@ -14,15 +14,15 @@ const arcanaProjects = [
   {
     name: "Arcana's Developer Dashboard",
     work: "Developed a dashboard that developers can use to configure Arcana.",
-    techUsed: "Vue, Ethers, Arcana Auth SDK",
+    techUsed: "Vue, Ethers, Arcana Auth SDK, Stripe, Chart.js",
     link: "https://dashboard.arcana.network/",
     externalLink: true,
     tooltip: "Click to use the app.",
   },
   {
     name: "Arcana's web wallet",
-    work: "Developed a web wallet to manage user's keys, and handle blockchain transactions.",
-    techUsed: "Vue, Ethers, Penpal, Tailwind",
+    work: "Developed a web wallet to manage user's keys, hold funds, tokens and NFTs, and handle blockchain transactions.",
+    techUsed: "Vue, Ethers, Penpal, Tailwind, Transak, Ramp Network",
     link: "https://www.youtube.com/watch?v=avsNILNA9pk",
     externalLink: true,
     tooltip: "Click to watch the demo video.",
