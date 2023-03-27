@@ -100,6 +100,10 @@ span {
   gap: 0.5rem;
 }
 
+.card-link {
+  transition: box-shadow var(--duration-base);
+}
+
 .card-link:where(:hover, :focus-visible) {
   box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 40px 4px;
 }
