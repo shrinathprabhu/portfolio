@@ -277,6 +277,16 @@ textarea {
   }
 }
 
+.page-transition-enter-active,
+.page-transition-leave-active {
+  transition: all 0.4s;
+}
+.page-transition-enter-from,
+.page-transition-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
+
 @media screen and (min-width: 768px) {
   :root {
     font-size: 16px;

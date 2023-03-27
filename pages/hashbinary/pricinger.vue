@@ -164,6 +164,10 @@ function moveCursorToPricingerPowerButton(timeline: gsap.core.Timeline) {
 }
 
 onMounted(() => {
+  setTimeout(startAnimation, 500);
+});
+
+function startAnimation() {
   const pricingerHighlightPathLength = getSvgPathLength(
     "#pricinger-icon-highlight"
   );
@@ -711,7 +715,7 @@ onMounted(() => {
       },
       "<"
     );
-});
+}
 </script>
 
 <template>
@@ -5750,7 +5754,7 @@ onMounted(() => {
 
 svg {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1280px;
   height: auto;
 }
 

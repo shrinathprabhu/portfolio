@@ -44,6 +44,10 @@ function startOtpTimer() {
 }
 
 onMounted(() => {
+  setTimeout(startAnimation, 500);
+});
+
+function startAnimation() {
   const successCheckPathLength = getSvgPathLength("#success-icon-check");
 
   timeline
@@ -419,9 +423,7 @@ onMounted(() => {
       duration: 0.3,
       delay: 0.1,
     });
-
-  timeline.play(0);
-});
+}
 </script>
 
 <template>
