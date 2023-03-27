@@ -68,7 +68,7 @@ const emit = defineEmits(["close"]);
   cursor: pointer;
 }
 
-.close-button:hover {
+.close-button:where(:hover, :focus-visible) {
   box-shadow: none;
 }
 </style>

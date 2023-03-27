@@ -21,6 +21,7 @@ const props = defineProps<WorkProjectProps>();
       :key="project.name"
       :text="project.tooltip"
       class="project"
+      :class="{ 'card-link': project.link }"
     >
       <NuxtLink
         v-if="project.link"
@@ -94,8 +95,13 @@ span {
 .project-card {
   display: flex;
   flex-direction: column;
+  border-radius: 2rem;
   padding: 2rem;
   gap: 0.5rem;
+}
+
+.card-link:where(:hover, :focus-visible) {
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 40px 4px;
 }
 
 .work-link,

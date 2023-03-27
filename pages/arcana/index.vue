@@ -57,7 +57,7 @@ const arcanaProjects = [
   {
     name: "Misc",
     techUsed: "Javascript, CSS, Nuxt, Vue",
-    work: "Worked on various other things like creating email templates, wallet verify page, etc.",
+    work: "Worked on various other things like creating email templates, auth verifification page, microsites etc.",
     tooltip: "Nothing to see",
   },
 ];

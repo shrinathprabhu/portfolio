@@ -12,8 +12,6 @@ const hoverEffect = {
 const timeline = gsap.timeline({ delay: 0.2 });
 const timelineRestart = useTimelineRestart(timeline);
 
-watch(timelineRestart.show, () => console.log(timelineRestart.show.value));
-
 useHead({
   title: "Worked on backend for 8SQM | Shrinath Prabhu | Web Developer",
   meta: [
