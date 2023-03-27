@@ -35,6 +35,14 @@ useHead({
   ],
 });
 
+definePageMeta({
+  pageTransition: {
+    onAfterEnter() {
+      startAnimation();
+    },
+  },
+});
+
 function startOtpTimer() {
   const otpTimerInterval = setInterval(() => {
     otpTimerSeconds.value -= 1;
@@ -45,385 +53,383 @@ function startOtpTimer() {
   }, 1000);
 }
 
-onMounted(() => {
-  if (process.client) {
-    const successCheckPathLength = getSvgPathLength("#success-icon-check");
+function startAnimation() {
+  const successCheckPathLength = getSvgPathLength("#success-icon-check");
 
-    timeline
-      .to("#login-page", {
+  timeline
+    .to("#login-page", {
+      opacity: 1,
+    })
+    .to("#login-8sqm-logo", {
+      y: 240,
+    })
+    .to("#login-car-wash-logo", {
+      x: 80,
+    })
+    .to("#login-car-wash-logo", {
+      opacity: 1,
+      duration: 0.2,
+    })
+    .to("#login-car-wash-logo", {
+      x: 0,
+      duration: 0.4,
+      delay: 0.1,
+    })
+    .to(
+      ".login-logo-text",
+      {
         opacity: 1,
-      })
-      .to("#login-8sqm-logo", {
-        y: 240,
-      })
-      .to("#login-car-wash-logo", {
-        x: 80,
-      })
-      .to("#login-car-wash-logo", {
-        opacity: 1,
-        duration: 0.2,
-      })
-      .to("#login-car-wash-logo", {
-        x: 0,
-        duration: 0.4,
-        delay: 0.1,
-      })
-      .to(
-        ".login-logo-text",
-        {
-          opacity: 1,
-          duration: 0.1,
-          stagger: 0.05,
-        },
-        "-=0.1"
-      )
-      .to("#login-8sqm-logo", {
-        y: 0,
-        duration: 0.4,
-        delay: 0.25,
-      })
-      .to("#login-description", {
-        opacity: 1,
-        duration: 0.2,
-        delay: 0.2,
-      })
-      .to("#car-wash-illustration", {
-        scale: 0,
-      })
-      .to("#car-wash-illustration", {
-        scale: 1,
-        opacity: 1,
-        duration: 0.4,
-        delay: 0.15,
-      })
-      .to("#login-input-data-container", {
-        opacity: 1,
-        duration: 0.2,
-        delay: 0.2,
-      })
-      .to("#cursor", {
+        duration: 0.1,
+        stagger: 0.05,
+      },
+      "-=0.1"
+    )
+    .to("#login-8sqm-logo", {
+      y: 0,
+      duration: 0.4,
+      delay: 0.25,
+    })
+    .to("#login-description", {
+      opacity: 1,
+      duration: 0.2,
+      delay: 0.2,
+    })
+    .to("#car-wash-illustration", {
+      scale: 0,
+    })
+    .to("#car-wash-illustration", {
+      scale: 1,
+      opacity: 1,
+      duration: 0.4,
+      delay: 0.15,
+    })
+    .to("#login-input-data-container", {
+      opacity: 1,
+      duration: 0.2,
+      delay: 0.2,
+    })
+    .to("#cursor", {
+      opacity: 1,
+      duration: 0.3,
+    })
+    .to("#cursor", {
+      y: 80,
+      duration: 0.6,
+    })
+    .to(
+      "#cursor",
+      {
+        x: -210,
+        duration: 0.3,
+      },
+      "<"
+    )
+    .to("#login-input-placeholder", {
+      opacity: 0,
+      duration: 0.2,
+      delay: 0.4,
+    })
+    .to("#login-input-text", {
+      filter: "blur(4px)",
+    })
+    .to(".login-input-text", {
+      opacity: 1,
+      duration: 0.2,
+      delay: 0.1,
+      stagger: 0.15,
+    })
+    .to("#cursor", {
+      x: -100,
+      duration: 0.6,
+    })
+    .to(
+      "#cursor",
+      {
+        y: 200,
+        duration: 0.3,
+      },
+      "<"
+    )
+    .to("#login-phone-continue-button", hoverEffect, "-=0.15")
+    .to("#login-otp-data-container", {
+      x: 500,
+    })
+    .to(".otp-from-sms", {
+      opacity: 0,
+    })
+    .to("#login-input-data-container", {
+      x: -500,
+      duration: 0.5,
+      delay: 0.2,
+    })
+    .to("#login-otp-data-container", {
+      x: 0,
+      opacity: 1,
+      duration: 0.5,
+    })
+    .add(startOtpTimer)
+    .to(".otp-from-sms", {
+      opacity: 1,
+      duration: 0.3,
+      stagger: 0.15,
+      delay: 1,
+    })
+    .to("#cursor", {
+      y: 160,
+      duration: 0.3,
+    })
+    .to("#login-otp-continue-button", hoverEffect, "-=0.15")
+    .to("#service-selection-page", {
+      opacity: 1,
+    })
+    .to("#login-page", {
+      opacity: 0,
+      duration: 0.5,
+    })
+    .to(
+      "#cursor",
+      {
+        opacity: 0,
+        duration: 0.3,
+      },
+      "<"
+    );
+
+  timeline
+    .to(".map-loading-circle", {
+      attr: {
+        r: 200,
+      },
+      opacity: 0,
+      duration: 2,
+      stagger: 0.5,
+      repeat: 1,
+      delay: 0.1,
+    })
+    .to(
+      ".service-marker",
+      {
         opacity: 1,
         duration: 0.3,
-      })
-      .to("#cursor", {
-        y: 80,
+        stagger: 0.1,
+      },
+      "-=0.3"
+    )
+    .to("#map-loading-pin", { opacity: 0, duration: 0.3 }, "<")
+    .to("#cursor", {
+      opacity: 1,
+      duration: 0.3,
+    })
+    .to("#cursor", {
+      x: -55,
+      duration: 1,
+    })
+    .to(
+      "#cursor",
+      {
+        y: -310,
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to("#service-selected-container", {
+      opacity: 1,
+      duration: 0.5,
+      delay: 0.3,
+    })
+    .to("#cursor", {
+      x: -90,
+      duration: 1,
+    })
+    .to(
+      "#cursor",
+      {
+        y: 120,
+        duration: 0.5,
+      },
+      "<"
+    )
+    .to("#book-now-button", hoverEffect, "-=0.15")
+    .to("#order-details-page", {
+      opacity: 1,
+    })
+    .to("#service-selection-page", {
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.3,
+    })
+    .to("#cursor", {
+      y: 210,
+      duration: 0.3,
+      delay: 0.5,
+    })
+    .to("#order-pay-now", hoverEffect, "-=0.15");
+
+  timeline
+    .to("#loading-page", { opacity: 1 })
+    .to("#cursor", {
+      opacity: 0,
+      duration: 0.3,
+    })
+    .to(
+      "#order-details-page",
+      {
+        opacity: 0,
         duration: 0.6,
-      })
-      .to(
-        "#cursor",
-        {
-          x: -210,
-          duration: 0.3,
-        },
-        "<"
-      )
-      .to("#login-input-placeholder", {
-        opacity: 0,
-        duration: 0.2,
-        delay: 0.4,
-      })
-      .to("#login-input-text", {
-        filter: "blur(4px)",
-      })
-      .to(".login-input-text", {
-        opacity: 1,
-        duration: 0.2,
-        delay: 0.1,
-        stagger: 0.15,
-      })
-      .to("#cursor", {
-        x: -100,
-        duration: 0.6,
-      })
-      .to(
-        "#cursor",
-        {
-          y: 200,
-          duration: 0.3,
-        },
-        "<"
-      )
-      .to("#login-phone-continue-button", hoverEffect, "-=0.15")
-      .to("#login-otp-data-container", {
-        x: 500,
-      })
-      .to(".otp-from-sms", {
-        opacity: 0,
-      })
-      .to("#login-input-data-container", {
-        x: -500,
-        duration: 0.5,
-        delay: 0.2,
-      })
-      .to("#login-otp-data-container", {
-        x: 0,
-        opacity: 1,
-        duration: 0.5,
-      })
-      .add(startOtpTimer)
-      .to(".otp-from-sms", {
-        opacity: 1,
-        duration: 0.3,
-        stagger: 0.15,
-        delay: 1,
-      })
-      .to("#cursor", {
-        y: 160,
-        duration: 0.3,
-      })
-      .to("#login-otp-continue-button", hoverEffect, "-=0.15")
-      .to("#service-selection-page", {
-        opacity: 1,
-      })
-      .to("#login-page", {
-        opacity: 0,
-        duration: 0.5,
-      })
-      .to(
-        "#cursor",
-        {
-          opacity: 0,
-          duration: 0.3,
-        },
-        "<"
-      );
-
-    timeline
-      .to(".map-loading-circle", {
-        attr: {
-          r: 200,
-        },
-        opacity: 0,
-        duration: 2,
-        stagger: 0.5,
-        repeat: 1,
-        delay: 0.1,
-      })
-      .to(
-        ".service-marker",
-        {
-          opacity: 1,
-          duration: 0.3,
-          stagger: 0.1,
-        },
-        "-=0.3"
-      )
-      .to("#map-loading-pin", { opacity: 0, duration: 0.3 }, "<")
-      .to("#cursor", {
-        opacity: 1,
-        duration: 0.3,
-      })
-      .to("#cursor", {
-        x: -55,
-        duration: 1,
-      })
-      .to(
-        "#cursor",
-        {
-          y: -310,
-          duration: 0.4,
-        },
-        "<"
-      )
-      .to("#service-selected-container", {
-        opacity: 1,
-        duration: 0.5,
         delay: 0.3,
-      })
-      .to("#cursor", {
-        x: -90,
-        duration: 1,
-      })
-      .to(
-        "#cursor",
-        {
-          y: 120,
-          duration: 0.5,
-        },
-        "<"
-      )
-      .to("#book-now-button", hoverEffect, "-=0.15")
-      .to("#order-details-page", {
-        opacity: 1,
-      })
-      .to("#service-selection-page", {
-        opacity: 0,
-        duration: 0.5,
-        delay: 0.3,
-      })
-      .to("#cursor", {
-        y: 210,
-        duration: 0.3,
-        delay: 0.5,
-      })
-      .to("#order-pay-now", hoverEffect, "-=0.15");
-
-    timeline
-      .to("#loading-page", { opacity: 1 })
-      .to("#cursor", {
-        opacity: 0,
-        duration: 0.3,
-      })
-      .to(
-        "#order-details-page",
-        {
-          opacity: 0,
-          duration: 0.6,
-          delay: 0.3,
-        },
-        "<"
-      )
-      .to("#stripe-page", { opacity: 1, duration: 0.6 })
-      .to("#cursor", {
-        opacity: 1,
-        duration: 0.3,
-      })
-      .to("#cursor", {
-        x: -330,
-        duration: 1,
-        delay: 0.3,
-      })
-      .to(
-        "#cursor",
-        {
-          y: -280,
-          duration: 0.4,
-        },
-        "<"
-      )
-      .to(".stripe-email", {
-        opacity: 1,
-        duration: 0.1,
-        delay: 0.1,
-        stagger: 0.1,
-      })
-      .to("#cursor", {
-        y: -190,
-        duration: 0.3,
-      })
-      .to(".card-number", {
-        opacity: 1,
-        duration: 0.1,
-        stagger: 0.1,
-        delay: 0.1,
-      })
-      .to(
-        "#Cards",
-        {
-          opacity: 1,
-          duration: 0.3,
-        },
-        "-=1"
-      )
-      .to("#cursor", {
-        y: -150,
-        duration: 0.3,
-      })
-      .to(".card-expiry", {
-        opacity: 1,
-        duration: 0.2,
-        stagger: 0.2,
-        delay: 0.1,
-      })
-      .to("#cursor", {
-        x: -165,
-        duration: 0.3,
-      })
-      .to(".cvc", {
-        opacity: 1,
-        duration: 0.1,
-        stagger: 0.1,
-        delay: 0.1,
-      })
-      .to("#cursor", {
-        x: -330,
-        duration: 1,
-        delay: 0.3,
-      })
-      .to(
-        "#cursor",
-        {
-          y: -60,
-          duration: 0.4,
-        },
-        "<"
-      )
-      .to(".card-name", {
-        opacity: 1,
-        duration: 0.1,
-        stagger: 0.1,
-        delay: 0.1,
-      })
-      .to("#cursor", {
-        x: -110,
-        duration: 1,
-        delay: 0.3,
-      })
-      .to(
-        "#cursor",
-        {
-          y: 135,
-          filter: "brightness(5)",
-          duration: 0.4,
-        },
-        "<"
-      )
-      .to("#pay-button", hoverEffect, "-=0.15")
-      .to("#stripe-page", { opacity: 0, duration: 0.4, delay: 0.2 })
-      .to(
-        "#cursor",
-        {
-          opacity: 0,
-          filter: "none",
-          duration: 0.4,
-        },
-        "<"
-      )
-      .to("#success-page", {
-        opacity: 1,
+      },
+      "<"
+    )
+    .to("#stripe-page", { opacity: 1, duration: 0.6 })
+    .to("#cursor", {
+      opacity: 1,
+      duration: 0.3,
+    })
+    .to("#cursor", {
+      x: -330,
+      duration: 1,
+      delay: 0.3,
+    })
+    .to(
+      "#cursor",
+      {
+        y: -280,
         duration: 0.4,
-        delay: 0.3,
-      });
+      },
+      "<"
+    )
+    .to(".stripe-email", {
+      opacity: 1,
+      duration: 0.1,
+      delay: 0.1,
+      stagger: 0.1,
+    })
+    .to("#cursor", {
+      y: -190,
+      duration: 0.3,
+    })
+    .to(".card-number", {
+      opacity: 1,
+      duration: 0.1,
+      stagger: 0.1,
+      delay: 0.1,
+    })
+    .to(
+      "#Cards",
+      {
+        opacity: 1,
+        duration: 0.3,
+      },
+      "-=1"
+    )
+    .to("#cursor", {
+      y: -150,
+      duration: 0.3,
+    })
+    .to(".card-expiry", {
+      opacity: 1,
+      duration: 0.2,
+      stagger: 0.2,
+      delay: 0.1,
+    })
+    .to("#cursor", {
+      x: -165,
+      duration: 0.3,
+    })
+    .to(".cvc", {
+      opacity: 1,
+      duration: 0.1,
+      stagger: 0.1,
+      delay: 0.1,
+    })
+    .to("#cursor", {
+      x: -330,
+      duration: 1,
+      delay: 0.3,
+    })
+    .to(
+      "#cursor",
+      {
+        y: -60,
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to(".card-name", {
+      opacity: 1,
+      duration: 0.1,
+      stagger: 0.1,
+      delay: 0.1,
+    })
+    .to("#cursor", {
+      x: -110,
+      duration: 1,
+      delay: 0.3,
+    })
+    .to(
+      "#cursor",
+      {
+        y: 135,
+        filter: "brightness(5)",
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to("#pay-button", hoverEffect, "-=0.15")
+    .to("#stripe-page", { opacity: 0, duration: 0.4, delay: 0.2 })
+    .to(
+      "#cursor",
+      {
+        opacity: 0,
+        filter: "none",
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to("#success-page", {
+      opacity: 1,
+      duration: 0.4,
+      delay: 0.3,
+    });
 
-    timeline
-      .to("#success-icon-check", {
-        strokeDasharray: successCheckPathLength,
-        strokeDashoffset: -successCheckPathLength + 1,
-      })
-      .to("#success-icon-circle", {
-        opacity: 1,
-        duration: 0.5,
-        delay: 0.3,
-      })
-      .to("#success-icon-check", {
-        opacity: 1,
-        duration: 0.1,
-      })
-      .to(
-        "#success-icon-check",
-        {
-          strokeDashoffset: 0,
-          duration: 0.3,
-        },
-        "<"
-      )
-      .to("#success-message-container", {
-        opacity: 1,
+  timeline
+    .to("#success-icon-check", {
+      strokeDasharray: successCheckPathLength,
+      strokeDashoffset: -successCheckPathLength + 1,
+    })
+    .to("#success-icon-circle", {
+      opacity: 1,
+      duration: 0.5,
+      delay: 0.3,
+    })
+    .to("#success-icon-check", {
+      opacity: 1,
+      duration: 0.1,
+    })
+    .to(
+      "#success-icon-check",
+      {
+        strokeDashoffset: 0,
         duration: 0.3,
-        delay: 0.1,
-      })
-      .to("#schedule-booking-container", {
-        opacity: 1,
-        duration: 0.3,
-        delay: 0.1,
-      })
-      .to("#success-page-btn", {
-        opacity: 1,
-        duration: 0.3,
-        delay: 0.1,
-      });
-  }
-});
+      },
+      "<"
+    )
+    .to("#success-message-container", {
+      opacity: 1,
+      duration: 0.3,
+      delay: 0.1,
+    })
+    .to("#schedule-booking-container", {
+      opacity: 1,
+      duration: 0.3,
+      delay: 0.1,
+    })
+    .to("#success-page-btn", {
+      opacity: 1,
+      duration: 0.3,
+      delay: 0.1,
+    });
+}
 </script>
 
 <template>

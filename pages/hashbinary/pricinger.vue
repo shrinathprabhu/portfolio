@@ -35,6 +35,14 @@ useHead({
   ],
 });
 
+definePageMeta({
+  pageTransition: {
+    onAfterEnter() {
+      startAnimation();
+    },
+  },
+});
+
 function optimizeSettings() {
   selectedConfig.proxy = "Krujë, Albania (Free)";
   selectedConfig.os = "Ubuntu 22.04";
@@ -163,557 +171,555 @@ function moveCursorToPricingerPowerButton(timeline: gsap.core.Timeline) {
   return timeline;
 }
 
-onMounted(() => {
-  if (process.client) {
-    const pricingerHighlightPathLength = getSvgPathLength(
-      "#pricinger-icon-highlight"
-    );
-    const hotelListHighlightPathLength = getSvgPathLength(
-      ".hotel-list-highlight"
-    );
+function startAnimation() {
+  const pricingerHighlightPathLength = getSvgPathLength(
+    "#pricinger-icon-highlight"
+  );
+  const hotelListHighlightPathLength = getSvgPathLength(
+    ".hotel-list-highlight"
+  );
 
-    timeline
-      .to("#mouse-cursor", {
+  timeline
+    .to("#mouse-cursor", {
+      opacity: 1,
+      duration: 0.15,
+    })
+    .add(moveCursorToPricingerExtensionIcon(timeline))
+    .add(
+      startCirclePathAnimation(
+        timeline,
+        "#pricinger-icon-highlight",
+        pricingerHighlightPathLength
+      )
+    )
+    .to(
+      "#mouse-cursor",
+      {
+        x: -1210,
+        duration: 0.6,
+      },
+      "<"
+    )
+    .to("#google-domain-select", {
+      fill: "#00A3FF",
+      delay: 0.3,
+    })
+    .to("#google-domain", { display: "none", delay: 0.3 })
+    .to("#booking-domain", { opacity: 1 })
+    .to(".booking-domain-domain-text", {
+      opacity: 1,
+      duration: 0.2,
+      stagger: 0.2,
+    })
+    .to("#google-page", { opacity: 0 })
+    .to("#booking-home, #booking-domain-search-country", {
+      opacity: 1,
+      duration: 0.2,
+      delay: 0.3,
+    })
+    .add(moveCursorToPricingerExtensionIcon(timeline))
+    .add(
+      startCirclePathAnimation(
+        timeline,
+        "#pricinger-icon-highlight",
+        pricingerHighlightPathLength
+      ),
+      "-=1"
+    )
+    .to("#pricinger-icon", { filter: "none", duration: 0.2 }, "<")
+    .to("#mouse-cursor", {
+      y: -630,
+      duration: 0.2,
+      delay: 1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        x: -950,
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to("#booking-home", { opacity: 0, delay: 0.3 })
+    .to(
+      "#booking-domain-search-location, #booking-domain-search-date, #hotel-list",
+      {
+        opacity: 1,
+      }
+    )
+    .add(moveCursorToPricingerExtensionIcon(timeline))
+    .add(showPricingerPopup(timeline))
+    .add(moveCursorToPricingerPowerButton(timeline))
+    .to("#mouse-cursor", {
+      y: -720,
+      duration: 0.2,
+      delay: 0.5,
+    })
+    .add(hideTooltip(timeline, "#switch-on-off-tooltip"), "-=0.2")
+    .fromTo(
+      "#tab-two-frame",
+      {
+        x: -40,
+      },
+      {
+        x: -24,
+        opacity: 1,
+        duration: 0.3,
+        delay: 0.2,
+      }
+    )
+    .to(
+      "#add-tab-plus-icon",
+      {
+        x: -24,
+        duration: 0.3,
+      },
+      "<"
+    )
+    .to(
+      "#tab-one-frame",
+      {
+        opacity: 0.65,
+        duration: 0.3,
+      },
+      "<"
+    )
+    .to(
+      "#hotel-list",
+      {
+        opacity: 0,
+        duration: 0.2,
+      },
+      "<"
+    )
+    .to("#booking-domain", { opacity: 0, duration: 0.1 }, "<")
+    .to(
+      "#pricinger-extension-domain",
+      { opacity: 1, duration: 0.1, delay: 0.1 },
+      "<"
+    )
+    .to(
+      "#pricinger-window",
+      {
+        opacity: 1,
+        duration: 0.1,
+        delay: 0.2,
+      },
+      "<"
+    )
+    .to("#pricinger-extension-popup", { opacity: 0 }, "<")
+    .to("#mouse-cursor", {
+      x: -360,
+      duration: 0.6,
+      delay: 0.2,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        y: -490,
+        duration: 0.3,
+      },
+      "<"
+    )
+    .to(
+      "#clear-local-storage-checkbox .checkbox-fill, #clear-local-storage-text",
+      {
+        fill: "#2B5071",
+        opacity: 1,
+        duration: 0.1,
+        delay: 0.1,
+      }
+    )
+    .to("#mouse-cursor", {
+      y: -450,
+      duration: 0.3,
+      delay: 0.1,
+    })
+    .to(
+      "#clear-session-storage-checkbox .checkbox-fill, #clear-session-storage-text",
+      {
+        fill: "#2B5071",
+        opacity: 1,
+        duration: 0.1,
+        delay: 0.1,
+      }
+    )
+    .to("#mouse-cursor", {
+      y: -370,
+      duration: 0.3,
+      delay: 0.1,
+    })
+    .to("#clear-cookies-checkbox .checkbox-fill, #clear-cookies-text", {
+      fill: "#2B5071",
+      opacity: 1,
+      duration: 0.1,
+      delay: 0.1,
+    })
+    .to("#mouse-cursor", {
+      x: -820,
+      duration: 0.4,
+      delay: 0.1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        y: -450,
+        duration: 0.2,
+      },
+      "<"
+    )
+    .to("#block-location-checkbox .checkbox-fill, #block-location-text", {
+      fill: "#2B5071",
+      opacity: 1,
+      duration: 0.1,
+      delay: 0.1,
+    })
+    .to("#mouse-cursor", {
+      x: -600,
+      duration: 0.4,
+      delay: 0.1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        y: -140,
+        duration: 0.2,
+      },
+      "<"
+    )
+    .fromTo(
+      "#browser-dropdown-options-container",
+      { y: -10 },
+      {
+        y: 0,
         opacity: 1,
         duration: 0.15,
-      })
-      .add(moveCursorToPricingerExtensionIcon(timeline))
-      .add(
-        startCirclePathAnimation(
-          timeline,
-          "#pricinger-icon-highlight",
-          pricingerHighlightPathLength
-        )
-      )
-      .to(
-        "#mouse-cursor",
-        {
-          x: -1210,
-          duration: 0.6,
-        },
-        "<"
-      )
-      .to("#google-domain-select", {
-        fill: "#00A3FF",
-        delay: 0.3,
-      })
-      .to("#google-domain", { display: "none", delay: 0.3 })
-      .to("#booking-domain", { opacity: 1 })
-      .to(".booking-domain-domain-text", {
+        delay: 0.1,
+      }
+    )
+    .to("#mouse-cursor", {
+      x: -800,
+      duration: 0.4,
+      delay: 0.1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        y: 20,
+        duration: 0.2,
+      },
+      "<"
+    )
+    .add(() => {
+      selectedConfig.browser = "Brave Browser";
+    })
+    .to("#selected-browser-dropdown-value", {
+      fontWeight: "500",
+      fontSize: "18",
+    })
+    .to("#browser-dropdown-options-container", {
+      opacity: 0,
+      y: -10,
+      duration: 0.2,
+    })
+    .to("#mouse-cursor", {
+      x: -1050,
+      duration: 0.4,
+      delay: 0.1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        y: -140,
+        duration: 0.2,
+      },
+      "<"
+    )
+    .fromTo(
+      "#proxy-dropdown-options-container",
+      { y: -10 },
+      {
+        y: 0,
         opacity: 1,
+        duration: 0.15,
+        delay: 0.1,
+      }
+    )
+    .to("#mouse-cursor", {
+      x: -1100,
+      duration: 0.4,
+      delay: 0.1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        y: -100,
         duration: 0.2,
-        stagger: 0.2,
-      })
-      .to("#google-page", { opacity: 0 })
-      .to("#booking-home, #booking-domain-search-country", {
-        opacity: 1,
-        duration: 0.2,
-        delay: 0.3,
-      })
-      .add(moveCursorToPricingerExtensionIcon(timeline))
-      .add(
-        startCirclePathAnimation(
-          timeline,
-          "#pricinger-icon-highlight",
-          pricingerHighlightPathLength
-        ),
-        "-=1"
-      )
-      .to("#pricinger-icon", { filter: "none", duration: 0.2 }, "<")
-      .to("#mouse-cursor", {
-        y: -630,
-        duration: 0.2,
-        delay: 1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          x: -950,
-          duration: 0.4,
-        },
-        "<"
-      )
-      .to("#booking-home", { opacity: 0, delay: 0.3 })
-      .to(
-        "#booking-domain-search-location, #booking-domain-search-date, #hotel-list",
-        {
-          opacity: 1,
-        }
-      )
-      .add(moveCursorToPricingerExtensionIcon(timeline))
-      .add(showPricingerPopup(timeline))
-      .add(moveCursorToPricingerPowerButton(timeline))
-      .to("#mouse-cursor", {
-        y: -720,
-        duration: 0.2,
-        delay: 0.5,
-      })
-      .add(hideTooltip(timeline, "#switch-on-off-tooltip"), "-=0.2")
-      .fromTo(
-        "#tab-two-frame",
-        {
-          x: -40,
-        },
-        {
-          x: -24,
-          opacity: 1,
-          duration: 0.3,
-          delay: 0.2,
-        }
-      )
-      .to(
-        "#add-tab-plus-icon",
-        {
-          x: -24,
-          duration: 0.3,
-        },
-        "<"
-      )
-      .to(
-        "#tab-one-frame",
-        {
-          opacity: 0.65,
-          duration: 0.3,
-        },
-        "<"
-      )
-      .to(
-        "#hotel-list",
-        {
-          opacity: 0,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .to("#booking-domain", { opacity: 0, duration: 0.1 }, "<")
-      .to(
-        "#pricinger-extension-domain",
-        { opacity: 1, duration: 0.1, delay: 0.1 },
-        "<"
-      )
-      .to(
-        "#pricinger-window",
-        {
-          opacity: 1,
-          duration: 0.1,
-          delay: 0.2,
-        },
-        "<"
-      )
-      .to("#pricinger-extension-popup", { opacity: 0 }, "<")
-      .to("#mouse-cursor", {
-        x: -360,
+      },
+      "<"
+    )
+    .add(() => {
+      selectedConfig.proxy = "Ljubljana, Slovenia (Free)";
+    })
+    .to("#selected-proxy-dropdown-value", {
+      fontWeight: "500",
+      fontSize: "18",
+    })
+    .to("#proxy-dropdown-options-container", {
+      opacity: 0,
+      y: -10,
+      duration: 0.2,
+    })
+    .to("#mouse-cursor", {
+      x: -1200,
+      duration: 0.2,
+      delay: 0.1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        y: -1070,
         duration: 0.6,
-        delay: 0.2,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          y: -490,
-          duration: 0.3,
-        },
-        "<"
-      )
-      .to(
-        "#clear-local-storage-checkbox .checkbox-fill, #clear-local-storage-text",
-        {
-          fill: "#2B5071",
-          opacity: 1,
-          duration: 0.1,
-          delay: 0.1,
-        }
-      )
-      .to("#mouse-cursor", {
-        y: -450,
-        duration: 0.3,
-        delay: 0.1,
-      })
-      .to(
-        "#clear-session-storage-checkbox .checkbox-fill, #clear-session-storage-text",
-        {
-          fill: "#2B5071",
-          opacity: 1,
-          duration: 0.1,
-          delay: 0.1,
-        }
-      )
-      .to("#mouse-cursor", {
-        y: -370,
-        duration: 0.3,
-        delay: 0.1,
-      })
-      .to("#clear-cookies-checkbox .checkbox-fill, #clear-cookies-text", {
-        fill: "#2B5071",
-        opacity: 1,
-        duration: 0.1,
-        delay: 0.1,
-      })
-      .to("#mouse-cursor", {
-        x: -820,
-        duration: 0.4,
-        delay: 0.1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          y: -450,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .to("#block-location-checkbox .checkbox-fill, #block-location-text", {
-        fill: "#2B5071",
-        opacity: 1,
-        duration: 0.1,
-        delay: 0.1,
-      })
-      .to("#mouse-cursor", {
-        x: -600,
-        duration: 0.4,
-        delay: 0.1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          y: -140,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .fromTo(
-        "#browser-dropdown-options-container",
-        { y: -10 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.15,
-          delay: 0.1,
-        }
-      )
-      .to("#mouse-cursor", {
-        x: -800,
-        duration: 0.4,
-        delay: 0.1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          y: 20,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .add(() => {
-        selectedConfig.browser = "Brave Browser";
-      })
-      .to("#selected-browser-dropdown-value", {
-        fontWeight: "500",
-        fontSize: "18",
-      })
-      .to("#browser-dropdown-options-container", {
+      },
+      "<"
+    )
+    .to("#tab-one-frame", {
+      opacity: 1,
+      duration: 0.2,
+      delay: 0.1,
+    })
+    .to(
+      "#tab-two-frame",
+      {
+        opacity: 0.65,
+        duration: 0.2,
+      },
+      "<"
+    )
+    .to(
+      "#pricinger-window",
+      {
         opacity: 0,
-        y: -10,
         duration: 0.2,
-      })
-      .to("#mouse-cursor", {
-        x: -1050,
-        duration: 0.4,
-        delay: 0.1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          y: -140,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .fromTo(
-        "#proxy-dropdown-options-container",
-        { y: -10 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.15,
-          delay: 0.1,
-        }
-      )
-      .to("#mouse-cursor", {
-        x: -1100,
-        duration: 0.4,
-        delay: 0.1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          y: -100,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .add(() => {
-        selectedConfig.proxy = "Ljubljana, Slovenia (Free)";
-      })
-      .to("#selected-proxy-dropdown-value", {
-        fontWeight: "500",
-        fontSize: "18",
-      })
-      .to("#proxy-dropdown-options-container", {
-        opacity: 0,
-        y: -10,
-        duration: 0.2,
-      })
-      .to("#mouse-cursor", {
-        x: -1200,
-        duration: 0.2,
-        delay: 0.1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          y: -1070,
-          duration: 0.6,
-        },
-        "<"
-      )
-      .to("#tab-one-frame", {
-        opacity: 1,
-        duration: 0.2,
-        delay: 0.1,
-      })
-      .to(
-        "#tab-two-frame",
-        {
-          opacity: 0.65,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .to(
-        "#pricinger-window",
-        {
-          opacity: 0,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .to("#pricinger-extension-domain", { opacity: 0, duration: 0.1 }, "<")
-      .to("#booking-domain", { opacity: 1, duration: 0.1 }, "<")
-      .to(
-        "#hotel-list",
-        {
-          opacity: 1,
-          duration: 0.1,
-          delay: 0.2,
-        },
-        "<"
-      )
-      .add(
-        startCirclePathAnimation(
-          timeline,
-          ".hotel-list-highlight",
-          hotelListHighlightPathLength,
-          1
-        )
-      )
-      .add(moveCursorToPricingerExtensionIcon(timeline))
-      .add(showPricingerPopup(timeline))
-      .add(moveCursorToPricingerPowerButton(timeline))
-      .to("#pricinger-switch-on-off-button, #pricinger-optimize-button", {
+      },
+      "<"
+    )
+    .to("#pricinger-extension-domain", { opacity: 0, duration: 0.1 }, "<")
+    .to("#booking-domain", { opacity: 1, duration: 0.1 }, "<")
+    .to(
+      "#hotel-list",
+      {
         opacity: 1,
         duration: 0.1,
         delay: 0.2,
-      })
-      .to(
-        "#switch-on-off-tooltip",
-        {
-          opacity: 0,
-          y: -10,
-          duration: 0.1,
-        },
-        "<"
+      },
+      "<"
+    )
+    .add(
+      startCirclePathAnimation(
+        timeline,
+        ".hotel-list-highlight",
+        hotelListHighlightPathLength,
+        1
       )
-      .to(
-        "#hotel-list",
-        {
-          opacity: 0,
-          duration: 0.1,
-        },
-        "<"
-      )
-      .add(updateHotelListPrices(["AUD 565", "AUD 343"]))
-      .to(
-        "#hotel-list",
-        {
-          opacity: 1,
-          duration: 0.1,
-          delay: 0.5,
-        },
-        "<"
-      )
-      .to("#mouse-cursor", {
-        y: -650,
-        duration: 0.3,
-        delay: 0.1,
-      })
-      .to("#pricinger-extension-popup", {
-        opacity: 0,
-        duration: 0.2,
-      })
-      .add(
-        startCirclePathAnimation(
-          timeline,
-          ".hotel-list-highlight",
-          hotelListHighlightPathLength,
-          1
-        )
-      )
-      .add(moveCursorToPricingerExtensionIcon(timeline))
-      .add(showPricingerPopup(timeline))
-      .to("#mouse-cursor", {
-        y: -780,
-        duration: 0.4,
-        delay: 0.1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          x: -60,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .fromTo(
-        "#optimize-settings-tooltip",
-        {
-          y: -10,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.2,
-        }
-      )
-      .fromTo(
-        "#pricinger-optimize-button",
-        { filter: "brightness(1)" },
-        {
-          filter: "brightness(1.25)",
-          duration: 0.1,
-        },
-        "<"
-      )
-      .to("#optimize-settings-tooltip", {
+    )
+    .add(moveCursorToPricingerExtensionIcon(timeline))
+    .add(showPricingerPopup(timeline))
+    .add(moveCursorToPricingerPowerButton(timeline))
+    .to("#pricinger-switch-on-off-button, #pricinger-optimize-button", {
+      opacity: 1,
+      duration: 0.1,
+      delay: 0.2,
+    })
+    .to(
+      "#switch-on-off-tooltip",
+      {
         opacity: 0,
         y: -10,
         duration: 0.1,
-        delay: 2,
-      })
-      .to(
-        "#pricinger-optimize-button",
-        {
-          filter: "brightness(1)",
-          duration: 0.1,
-        },
-        "<"
-      )
-      .to(
-        "#hotel-list",
-        {
-          opacity: 0,
-          duration: 0.1,
-        },
-        "<"
-      )
-      .add(updateHotelListPrices(["AUD 510", "AUD 253"]))
-      .to(
-        "#hotel-list",
-        {
-          opacity: 1,
-          duration: 0.1,
-          delay: 0.5,
-        },
-        "<"
-      )
-      .to("#mouse-cursor", {
-        y: -650,
-        duration: 0.3,
-        delay: 0.1,
-      })
-      .to("#pricinger-extension-popup", {
+      },
+      "<"
+    )
+    .to(
+      "#hotel-list",
+      {
         opacity: 0,
-        duration: 0.2,
-      })
-      .add(
-        startCirclePathAnimation(
-          timeline,
-          ".hotel-list-highlight",
-          hotelListHighlightPathLength,
-          1
-        )
-      )
-      .to(".optimize-on-cb, .optimize-on-text", {
-        fill: "#2B5071",
+        duration: 0.1,
+      },
+      "<"
+    )
+    .add(updateHotelListPrices(["AUD 565", "AUD 343"]))
+    .to(
+      "#hotel-list",
+      {
         opacity: 1,
-      })
-      .add(optimizeSettings)
-      .to(
-        "#selected-proxy-dropdown-value, #selected-os-dropdown-value, #selected-browser-dropdown-value",
-        {
-          fontWeight: "500",
-          fontSize: "18",
-        }
+        duration: 0.1,
+        delay: 0.5,
+      },
+      "<"
+    )
+    .to("#mouse-cursor", {
+      y: -650,
+      duration: 0.3,
+      delay: 0.1,
+    })
+    .to("#pricinger-extension-popup", {
+      opacity: 0,
+      duration: 0.2,
+    })
+    .add(
+      startCirclePathAnimation(
+        timeline,
+        ".hotel-list-highlight",
+        hotelListHighlightPathLength,
+        1
       )
-      .to("#mouse-cursor", {
-        x: -1050,
+    )
+    .add(moveCursorToPricingerExtensionIcon(timeline))
+    .add(showPricingerPopup(timeline))
+    .to("#mouse-cursor", {
+      y: -780,
+      duration: 0.4,
+      delay: 0.1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        x: -60,
         duration: 0.2,
-        delay: 1,
-      })
-      .to(
-        "#mouse-cursor",
-        {
-          y: -1070,
-          duration: 0.6,
-        },
-        "<"
+      },
+      "<"
+    )
+    .fromTo(
+      "#optimize-settings-tooltip",
+      {
+        y: -10,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.2,
+      }
+    )
+    .fromTo(
+      "#pricinger-optimize-button",
+      { filter: "brightness(1)" },
+      {
+        filter: "brightness(1.25)",
+        duration: 0.1,
+      },
+      "<"
+    )
+    .to("#optimize-settings-tooltip", {
+      opacity: 0,
+      y: -10,
+      duration: 0.1,
+      delay: 2,
+    })
+    .to(
+      "#pricinger-optimize-button",
+      {
+        filter: "brightness(1)",
+        duration: 0.1,
+      },
+      "<"
+    )
+    .to(
+      "#hotel-list",
+      {
+        opacity: 0,
+        duration: 0.1,
+      },
+      "<"
+    )
+    .add(updateHotelListPrices(["AUD 510", "AUD 253"]))
+    .to(
+      "#hotel-list",
+      {
+        opacity: 1,
+        duration: 0.1,
+        delay: 0.5,
+      },
+      "<"
+    )
+    .to("#mouse-cursor", {
+      y: -650,
+      duration: 0.3,
+      delay: 0.1,
+    })
+    .to("#pricinger-extension-popup", {
+      opacity: 0,
+      duration: 0.2,
+    })
+    .add(
+      startCirclePathAnimation(
+        timeline,
+        ".hotel-list-highlight",
+        hotelListHighlightPathLength,
+        1
       )
-      .to("#tab-two-frame", {
+    )
+    .to(".optimize-on-cb, .optimize-on-text", {
+      fill: "#2B5071",
+      opacity: 1,
+    })
+    .add(optimizeSettings)
+    .to(
+      "#selected-proxy-dropdown-value, #selected-os-dropdown-value, #selected-browser-dropdown-value",
+      {
+        fontWeight: "500",
+        fontSize: "18",
+      }
+    )
+    .to("#mouse-cursor", {
+      x: -1050,
+      duration: 0.2,
+      delay: 1,
+    })
+    .to(
+      "#mouse-cursor",
+      {
+        y: -1070,
+        duration: 0.6,
+      },
+      "<"
+    )
+    .to("#tab-two-frame", {
+      opacity: 1,
+      duration: 0.2,
+      delay: 0.1,
+    })
+    .to(
+      "#tab-one-frame",
+      {
+        opacity: 0.65,
+        duration: 0.2,
+      },
+      "<"
+    )
+    .to(
+      "#pricinger-window",
+      {
         opacity: 1,
         duration: 0.2,
-        delay: 0.1,
-      })
-      .to(
-        "#tab-one-frame",
-        {
-          opacity: 0.65,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .to(
-        "#pricinger-window",
-        {
-          opacity: 1,
-          duration: 0.2,
-        },
-        "<"
-      )
-      .to(
-        "#booking-domain",
-        {
-          opacity: 0,
-        },
-        "<"
-      )
-      .to(
-        "#pricinger-extension-domain",
-        {
-          opacity: 1,
-        },
-        "<"
-      );
-  }
-});
+      },
+      "<"
+    )
+    .to(
+      "#booking-domain",
+      {
+        opacity: 0,
+      },
+      "<"
+    )
+    .to(
+      "#pricinger-extension-domain",
+      {
+        opacity: 1,
+      },
+      "<"
+    );
+}
 </script>
 
 <template>
