@@ -13,5 +13,5 @@ useHead({
 </script>
 
 <template>
-  <NuxtPage />
+  <NuxtPage :transition="{ name: 'page-transition', mode: 'out-in' }" />
 </template>
