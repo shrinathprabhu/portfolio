@@ -30,13 +30,13 @@ function animateHeroImage() {
     .fromTo(
       "#big-screen-display path",
       { y: 50 },
-      { opacity: 1, y: 0, duration: 0.3, delay: 1, stagger: 0.25 }
+      { opacity: 1, y: 0, duration: 0.3, delay: 1, stagger: 0.1 }
     )
     .to("#big-screen-display path", {
       y: -50,
       opacity: 0,
       duration: 0.3,
-      delay: 2,
+      delay: 1,
       stagger: 0.1,
     });
 

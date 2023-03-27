@@ -35,14 +35,6 @@ useHead({
   ],
 });
 
-definePageMeta({
-  pageTransition: {
-    onAfterEnter() {
-      startAnimation();
-    },
-  },
-});
-
 function optimizeSettings() {
   selectedConfig.proxy = "Krujë, Albania (Free)";
   selectedConfig.os = "Ubuntu 22.04";
@@ -170,6 +162,10 @@ function moveCursorToPricingerPowerButton(timeline: gsap.core.Timeline) {
 
   return timeline;
 }
+
+onMounted(() => {
+  setTimeout(startAnimation, 500);
+});
 
 function startAnimation() {
   const pricingerHighlightPathLength = getSvgPathLength(
@@ -5757,7 +5753,7 @@ function startAnimation() {
 
 svg {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1280px;
   height: auto;
 }
 

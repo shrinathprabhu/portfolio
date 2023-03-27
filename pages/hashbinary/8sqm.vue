@@ -35,14 +35,6 @@ useHead({
   ],
 });
 
-definePageMeta({
-  pageTransition: {
-    onAfterEnter() {
-      startAnimation();
-    },
-  },
-});
-
 function startOtpTimer() {
   const otpTimerInterval = setInterval(() => {
     otpTimerSeconds.value -= 1;
@@ -52,6 +44,10 @@ function startOtpTimer() {
     }
   }, 1000);
 }
+
+onMounted(() => {
+  setTimeout(startAnimation, 500);
+});
 
 function startAnimation() {
   const successCheckPathLength = getSvgPathLength("#success-icon-check");
