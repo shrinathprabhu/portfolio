@@ -71,6 +71,7 @@ const hashbinaryProjects = [
     </h2>
     <p class="designation">Web Developer (April 2018 - January 2021)</p>
     <WorkProjects :projects="hashbinaryProjects" style="margin-top: 2rem" />
+    <BackToHome />
   </div>
 </template>
 
@@ -83,7 +84,7 @@ h2 {
   margin: 0;
 }
 
-.link {
+h2 .link {
   font-size: var(--fs-xl);
 }
 

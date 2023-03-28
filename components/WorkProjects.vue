@@ -61,7 +61,7 @@ const props = defineProps<WorkProjectProps>();
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .project-title {

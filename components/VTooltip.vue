@@ -2,17 +2,30 @@
 type TooltipProps = {
   text: string;
   direction?: "top" | "bottom" | "left" | "right";
+  variant?: "dark" | "light";
 };
 
 const props = withDefaults(defineProps<TooltipProps>(), {
   direction: "bottom",
+  variant: "light",
+});
+
+type TooltipClasses = {
+  [key: string]: boolean;
+};
+
+const tooltipClasses = computed(() => {
+  const classes: TooltipClasses = {};
+  classes[props.direction] = true;
+  classes[props.variant] = true;
+  return classes;
 });
 </script>
 
 <template>
   <div class="tooltip-wrapper" aria-haspopup="listbox">
     <slot />
-    <div class="tooltip" :class="props.direction">{{ props.text }}</div>
+    <div class="tooltip" :class="tooltipClasses">{{ props.text }}</div>
   </div>
 </template>
 
@@ -27,7 +40,7 @@ const props = withDefaults(defineProps<TooltipProps>(), {
   display: none;
   position: absolute;
   width: max-content;
-  max-width: 300px;
+  max-width: 352px;
   z-index: 10000;
   background-color: var(--color-tooltip-bg);
   padding: 0.5rem;
@@ -36,22 +49,27 @@ const props = withDefaults(defineProps<TooltipProps>(), {
   font-size: var(--fs-sm);
 }
 
+.tooltip.light {
+  background-color: var(--color-text);
+  color: var(--color-tooltip-bg);
+}
+
 .tooltip.top {
-  bottom: 100%;
+  bottom: calc(100% + 0.25rem);
 }
 
 .tooltip.left {
   top: 0;
-  right: 100%;
+  right: calc(100% + 0.25rem);
 }
 
 .tooltip.bottom {
-  top: 100%;
+  top: calc(100% + 0.25rem);
 }
 
 .tooltip.right {
   top: 0;
-  left: 100%;
+  left: calc(100% + 0.25rem);
 }
 
 .tooltip-wrapper:where(:hover, :focus-visible) .tooltip {
