@@ -71,7 +71,7 @@ const hashbinaryProjects = [
     </h2>
     <p class="designation">Web Developer (April 2018 - January 2021)</p>
     <WorkProjects :projects="hashbinaryProjects" style="margin-top: 2rem" />
-    <BackToHome />
+    <BackToHome style="margin-block: 2.5rem" />
   </div>
 </template>
 

@@ -5739,7 +5739,7 @@ function startAnimation() {
       >
         Restart Animation
       </button>
-      <BackToHome previous-page="/hashbinary" />
+      <BackToHome previous-page="/hashbinary" style="margin-block: 0.5rem" />
     </div>
   </div>
 </template>

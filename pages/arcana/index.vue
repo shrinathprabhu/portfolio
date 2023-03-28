@@ -76,7 +76,7 @@ const arcanaProjects = [
     </h2>
     <p class="designation">Frontend Developer (January 2021 onwards)</p>
     <WorkProjects :projects="arcanaProjects" style="margin-top: 2rem" />
-    <BackToHome />
+    <BackToHome style="margin-block: 2.5rem" />
   </div>
 </template>
 

@@ -22,8 +22,6 @@ const props = defineProps<BackToHomeProps>();
   align-items: center;
   gap: 2.5rem;
   flex-wrap: wrap;
-
-  margin-block: 2.5rem;
 }
 
 .link {
