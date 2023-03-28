@@ -5,7 +5,7 @@ const showModal = ref(false);
 
 const works = [
   {
-    tooltip: "Arcana Network - since 2021",
+    tooltip: "Arcana Network (Click to view my contribution)",
     logo: {
       alt: "Arcana Network",
       src: "/images/arcana.png",
@@ -16,7 +16,7 @@ const works = [
     link: "/arcana",
   },
   {
-    tooltip: "Hashbinary Services - 2018-2021",
+    tooltip: "Hashbinary Services (Click to view my contribution)",
     logo: {
       alt: "Hashbinary Services LLP",
       src: "/images/hashbinary.png",
