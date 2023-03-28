@@ -6,7 +6,7 @@ const hashbinaryProjects = [
     work: "Worked as backend developer for 8SQM.",
     techUsed: "Node.js, MongoDB, Express, Twilio, Stripe, GeoJSON",
     link: "/hashbinary/8sqm",
-    tooltip: "Click to view animated walkthrough of 8SQM.",
+    tooltip: "Click to view the animated demo of 8SQM.",
   },
   {
     name: "Pricinger",
@@ -14,7 +14,7 @@ const hashbinaryProjects = [
     work: "Worked as fullstack web developer for 8SQM.",
     techUsed: "Node.js, MongoDB, Express, Chrome extension, Maxmind, Stripe",
     link: "/hashbinary/pricinger",
-    tooltip: "Click to view animated walkthrough of Pricinger.",
+    tooltip: "Click to view the animated demo of Pricinger.",
   },
   {
     name: "Agrostar",
@@ -24,7 +24,7 @@ const hashbinaryProjects = [
     link: "https://agrostar.in/",
     externalLink: true,
     tooltip:
-      "Animated walkthrough of this project is COMING SOON. Meanwhile you can click this card to view the more about what Agrostar does.",
+      "Animated demo of this project is COMING SOON. Meanwhile you can click this card to view more about what Agrostar does.",
   },
   {
     name: "Jagran's Campaign Management Tool",
@@ -43,7 +43,7 @@ const hashbinaryProjects = [
     link: "https://www.youtube.com/watch?v=ocH2B2cepiQ",
     externalLink: true,
     tooltip:
-      "Animated walkthrough of this project is COMING SOON. Meanwhile you can click this card to view the video demo.",
+      "Animated walkthrough of this project is COMING SOON. Meanwhile you can click this card to view the demo video.",
   },
   {
     name: "GoTappit",
@@ -53,7 +53,7 @@ const hashbinaryProjects = [
     link: "https://www.youtube.com/watch?v=sLRXf8-I_94",
     externalLink: true,
     tooltip:
-      "Animated walkthrough of this project is COMING SOON. Meanwhile you can click this card to view the video demo.",
+      "Animated walkthrough of this project is COMING SOON. Meanwhile you can click this card to view the demo video.",
   },
 ];
 </script>

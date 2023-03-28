@@ -9,7 +9,7 @@ const arcanaProjects = [
     link: "https://www.youtube.com/watch?v=y1r9orwuW7k",
     externalLink: true,
     tooltip:
-      "Animated walkthrough of this project is COMING SOON. Meanwhile you can click this card to view the video demo.",
+      "Animated demo of this project is COMING SOON. Meanwhile you can click this card to view the demo video.",
   },
   {
     name: "Arcana's Developer Dashboard",
