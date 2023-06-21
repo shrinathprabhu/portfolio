@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.14.1",
-    "nuxt": "^3.2.2"
+    "nuxt": "^3.4.3"
   },
   "dependencies": {
     "@morev/vue-transitions": "^2.3.6",
