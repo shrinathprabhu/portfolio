@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@morev/vue-transitions": "^2.3.6",
-    "@useoutline/analytics": "file:../analytics/analytics-sdk",
+    "@useoutline/analytics": "^0.4.4",
     "gsap": "^3.11.4",
     "jsonp": "^0.2.1",
     "punycode": "^2.3.0"
