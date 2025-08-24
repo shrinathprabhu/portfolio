@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         },
         {
           rel: "icon",
-          href: "/favicon.svg",
+          href: "/favicon.png",
         },
         {
           rel: "dns-prefetch",

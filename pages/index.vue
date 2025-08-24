@@ -5,26 +5,59 @@ const showModal = ref(false);
 
 const works = [
   {
-    tooltip: "Arcana Network (Click to view my contribution)",
+    tooltip: "Outline Analytics | Side Project",
     logo: {
-      alt: "Arcana Network",
-      src: "/images/arcana.png",
-      webp: "/images/webp/arcana.webp",
-      width: "160",
-      height: "127",
+      alt: "Outline Analytics @ https://useoutline.xyz",
+      src: "/images/useoutline.svg",
+      width: "220",
+      height: "220",
     },
-    link: "/arcana",
+    link: "https://useoutline.xyz",
   },
   {
-    tooltip: "Hashbinary Services (Click to view my contribution)",
+    tooltip:
+      "Avail Project | Frontend Engineer | 2025-present | Building Nexus",
+    logo: {
+      alt: "Avail Project @ https://availproject.org",
+      src: "/images/avail.svg",
+      width: "220",
+      height: "220",
+    },
+    link: "https://availproject.org",
+  },
+  {
+    tooltip:
+      "Arcana Network | Lead Frontend Engineer | 2021-2025 | Built SendIt, Chain Abstraction Wallet and Dashboards",
+    logo: {
+      alt: "Arcana Network @ https://arcana.network",
+      src: "/images/arcana.svg",
+      width: "220",
+      height: "220",
+    },
+    link: "https://arcana.network",
+  },
+  {
+    tooltip:
+      "Hashbinary Services | Fullstack Engineer | 2018-2021 | Built Pricinger, QBuild, GoTappit and various client projects",
     logo: {
       alt: "Hashbinary Services LLP",
       src: "/images/hashbinary.png",
       webp: "/images/webp/hashbinary.webp",
       width: "426",
-      height: "400",
+      height: "426",
     },
-    link: "/hashbinary",
+    link: "https://hashbinary.com",
+  },
+  {
+    tooltip:
+      "Agrostar | Fullstack Engineer | 2020-2021 | Built initial version of Saathi App, worked as a part of Hashbinary's outsourced employee",
+    logo: {
+      alt: "Agrostar",
+      src: "/images/agrostar.png",
+      width: "128",
+      height: "128",
+    },
+    link: "https://agrostar.in",
   },
 ];
 
@@ -190,6 +223,7 @@ onMounted(() => {
               <NuxtLink
                 class="flex work-link fade-in"
                 :to="work.link"
+                target="_blank"
                 :style="`animation-delay: calc(${
                   3 + (index + 1) * 0.35
                 } * var(--duration-fade-in))`"
@@ -197,7 +231,7 @@ onMounted(() => {
                 <picture>
                   <source
                     type="image/webp"
-                    :srcset="work.logo.webp"
+                    :srcset="work.logo.webp || work.logo.src"
                     :width="work.logo.width"
                     :height="work.logo.height"
                   />
@@ -214,16 +248,12 @@ onMounted(() => {
           </div>
         </div>
         <div class="flex-col" style="gap: 0.75rem; align-items: start">
-          <div class="flex" style="gap: 1.5rem; align-items: center">
-            <button
-              id="lets-connect"
-              class="cta-button fade-in-zoom"
-              aria-haspopup="dialog"
-              style="animation-delay: calc(3.75 * var(--duration-fade-in))"
-              @click.stop="showModal = true"
-            >
-              Let's Connect
-            </button>
+          <div class="flex-col" style="gap: 0.5rem">
+            <span
+              class="section-heading text-shadow fade-in"
+              style="animation-delay: calc(3 * var(--duration-fade-in))"
+              >Let's Connect
+            </span>
             <div class="flex icons" style="gap: 1.125rem">
               <VTooltip text="See Shrinath's code on Github">
                 <a
